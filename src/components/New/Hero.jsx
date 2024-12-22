@@ -9,7 +9,7 @@ const Hero = () => {
 
 
     return (
-        <section className='relative'>
+        <section className='relative scroll-smooth' id='hero'>
             <div
                 className="relative h-screen flex items-center justify-center bg-cover bg-center"
                 style={{
