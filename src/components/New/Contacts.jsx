@@ -1,83 +1,109 @@
-import React from 'react'
-import { FaEnvelope } from 'react-icons/fa'
+import React from 'react';
+import { FaEnvelope, FaPhone, FaLinkedin } from 'react-icons/fa';
 
 const Contacts = () => {
     return (
-        <section className='py-16'>
-            <div className='max-w-6xl mx-auto'>
-                <div className='grid grid-cols-2 gap-8'>
+        <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+            <div className="max-w-6xl mx-auto px-6">
+                {/* Title Section */}
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl font-extrabold mb-4">Let's Connect</h2>
+                    <p className="text-gray-300 max-w-2xl mx-auto">
+                        
+                        Whether you have a question, an opportunity, or just want to say hi, I would love to hear from you. 
+                                Fill out the form below, and I will get back to you as soon as possible.
+                    </p>
+                </div>
+
+                {/* Contact Section */}
+                <div className="grid md:grid-cols-2 gap-12 items-center">
+                    {/* Left: Form */}
                     <div>
-                        <div className="border-b border-gray-900/10 pb-12">
-
-                            <h2 className="text-base/7 font-semibold text-gray-900 flex items-center gap-4">
-                                <FaEnvelope className='h-10 w-10' />
-                                Get in touch.
-                            </h2>
-                            <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-                                <div className="col-span-full">
-                                    <label htmlFor="name" className="block text-sm/6 font-medium text-gray-900">
-                                        Name
-                                    </label>
-                                    <div className="mt-2">
-                                        <input
-                                            id="name"
-                                            name="name"
-                                            type="text"
-                                            autoComplete="given-name"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className="col-span-full">
-                                    <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
-                                        Email address
-                                    </label>
-                                    <div className="mt-2">
-                                        <input
-                                            id="email"
-                                            name="email"
-                                            type="email"
-                                            autoComplete="email"
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                                        />
-                                    </div>
-                                </div>
-
-
-                                <div className="col-span-full">
-                                    <label htmlFor="about" className="block text-sm/6 font-medium text-gray-900">
-                                        About
-                                    </label>
-                                    <div className="mt-2">
-                                        <textarea
-                                            id="about"
-                                            name="about"
-                                            rows={3}
-                                            className="block w-full rounded-md bg-white px-3 py-1.5 text-base text-gray-900 outline outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-                                            defaultValue={''}
-                                        />
-                                    </div>
-
-                                </div>
-
+                        <h3 className="text-2xl font-semibold text-purple-400 mb-8">Drop me a message</h3>
+                        <form className="space-y-6">
+                            {/* Name Input */}
+                            <div>
+                                <input
+                                    type="text"
+                                    name="name"
+                                    placeholder="Your Name"
+                                    className="w-full bg-gray-800 px-4 py-3 text-gray-200 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                                />
                             </div>
-
-                        </div>
-                        <button
-                            type="submit"
-                            className="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                        >
-                            Send Message
-                        </button>
+                            {/* Email Input */}
+                            <div>
+                                <input
+                                    type="email"
+                                    name="email"
+                                    placeholder="Your Email"
+                                    className="w-full bg-gray-800 px-4 py-3 text-gray-200 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                                />
+                            </div>
+                            {/* Message Input */}
+                            <div>
+                                <textarea
+                                    name="message"
+                                    rows="4"
+                                    placeholder="Your Message"
+                                    className="w-full bg-gray-800 px-4 py-3 text-gray-200 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                                ></textarea>
+                            </div>
+                            {/* Submit Button */}
+                            <button
+                                type="submit"
+                                className="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 rounded-lg transition"
+                            >
+                                Send Message
+                            </button>
+                        </form>
                     </div>
-                    <div>Roland</div>
+
+                    {/* Right: Contact Info & Message */}
+                    <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
+                        <h3 className="text-2xl font-semibold text-purple-400 mb-6">A Quick Note</h3>
+                        <p className="text-gray-300 leading-relaxed mb-8">
+                            Thank you for taking the time to reach out! I believe every great collaboration begins with a conversation. 
+                            Don not hesitate to share your thoughts or questions—I will respond promptly.
+                        </p>
+                        <div className="space-y-4 text-gray-200">
+                            {/* Email */}
+                            <div className="flex items-center gap-4">
+                                <FaEnvelope className="text-purple-400 w-6 h-6" />
+                                <a
+                                    href="mailto:your-email@example.com"
+                                    className="hover:underline"
+                                >
+                                    your-email@example.com
+                                </a>
+                            </div>
+                            {/* Phone */}
+                            <div className="flex items-center gap-4">
+                                <FaPhone className="text-purple-400 w-6 h-6" />
+                                <a
+                                    href="tel:+123456789"
+                                    className="hover:underline"
+                                >
+                                    +1 (234) 567-89
+                                </a>
+                            </div>
+                            {/* LinkedIn */}
+                            <div className="flex items-center gap-4">
+                                <FaLinkedin className="text-purple-400 w-6 h-6" />
+                                <a
+                                    href="https://linkedin.com/in/yourprofile"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:underline"
+                                >
+                                    linkedin.com/in/yourprofile
+                                </a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-
         </section>
+    );
+};
 
-    )
-}
-
-export default Contacts
+export default Contacts;

@@ -8,6 +8,7 @@ import TechStack from './components/New/TechStack'
 import Work from './components/New/Work'
 import Tesimonial from './components/New/Tesimonial'
 import Contacts from './components/New/Contacts'
+import Footer from './components/New/Footer'
 
 function App() {
 
@@ -21,6 +22,7 @@ function App() {
       <Work />
       <Tesimonial />
       <Contacts />
+      <Footer />
     </>
   )
 }
