@@ -8,33 +8,9 @@ import "swiper/css/pagination";
 import { Autoplay, Pagination } from "swiper/modules";
 
 import wood from "../../assets/wood.jpg";
-import rooo from "../../assets/rooo.jpg";
+import { testimonials } from "../../Data";
 
 const Testimonial = () => {
-  const testimonials = [
-    {
-      img: rooo,
-      quote:
-        "Working with [Your Name] was a game-changer. They didn’t just solve problems—they anticipated them, offering elegant solutions that transformed our project into a massive success.",
-      name: "Mo Salah",
-      title: "Software Engineer, Liverpool FC",
-    },
-    {
-      img: rooo,
-      quote:
-        "[Your Name]'s creativity and technical expertise are unmatched. Their ability to bridge the gap between vision and execution made all the difference in delivering results we are proud of.",
-      name: "Jane Doe",
-      title: "Project Manager, TechCorp",
-    },
-    {
-      img: rooo,
-      quote:
-        "Every interaction with [Your Name] is inspiring. They bring not just technical skills but empathy and a collaborative spirit that makes every project feel like a shared success story.",
-      name: "John Smith",
-      title: "CEO, StartUp XYZ",
-    },
-  ];
-
   return (
     <section
       className="relative flex w-full items-center justify-center bg-cover bg-center px-4 py-16 md:py-24 lg:px-8 bg-fixed"

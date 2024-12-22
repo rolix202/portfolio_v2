@@ -6,6 +6,7 @@ import bookstore_img from "./assets/book store.png"
 import community_img from "./assets/fixmycommunity.png"
 import skill_img from "./assets/skill lift.png"
 import taskmanager from "./assets/taskmaster.png"
+import rooo from "./assets/rooo.jpg";
 
 export const projects = [
   {
@@ -101,7 +102,7 @@ export const projects = [
    
   ];
 
- export const educationData = [
+export const educationData = [
     {
       title: 'B.Sc, Computer Science',
       institution: 'University of Nigeria, Nsukka',
@@ -131,3 +132,27 @@ export const projects = [
         'Completed a rigorous course in full-stack development. Learned to build responsive, dynamic web applications using modern tools.',
     },
   ];
+
+export const testimonials = [
+  {
+    img: rooo,
+    quote:
+      "Working with [Your Name] was a game-changer. They didn’t just solve problems—they anticipated them, offering elegant solutions that transformed our project into a massive success.",
+    name: "Mo Salah",
+    title: "Software Engineer, Liverpool FC",
+  },
+  {
+    img: rooo,
+    quote:
+      "[Your Name]'s creativity and technical expertise are unmatched. Their ability to bridge the gap between vision and execution made all the difference in delivering results we are proud of.",
+    name: "Jane Doe",
+    title: "Project Manager, TechCorp",
+  },
+  {
+    img: rooo,
+    quote:
+      "Every interaction with [Your Name] is inspiring. They bring not just technical skills but empathy and a collaborative spirit that makes every project feel like a shared success story.",
+    name: "John Smith",
+    title: "CEO, StartUp XYZ",
+  },
+];
