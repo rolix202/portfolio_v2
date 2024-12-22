@@ -1,0 +1,25 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Montserrat:wght@100..900&family=Roboto:wght@100..900&display=swap');
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.swiper-button-prev, .swiper-button-next{
+  display: none !important;
+}
+
+.swiper-pagination-bullet{
+  background-color: white !important;
+  height: var(--swiper-pagination-bullet-width, var(--swiper-pagination-bullet-size, 10px)) !important;
+  width: var(--swiper-pagination-bullet-height, var(--swiper-pagination-bullet-size, 10px)) !important;
+}
+
+.swiper-pagination-bullet-active{
+  background-color: blueviolet !important;
+}
+
+
+
