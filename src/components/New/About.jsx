@@ -50,7 +50,7 @@ const About = () => {
                             <li>Experience in building APIs with 99%+ uptime.</li>
                             <li>Focused on creating meaningful and maintainable software.</li>
                         </ul>
-                        <p className="text-gray-400">
+                        <p className="">
                             Outside of work, I’m constantly exploring new technologies, learning, and building side projects that bring me joy. {" "} <span className="text-purple-400 font-semibold">I would love to connect</span>  and help turn your ideas into reality.
                         </p>
                     </div>

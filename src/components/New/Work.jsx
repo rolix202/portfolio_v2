@@ -25,7 +25,7 @@ const Work = () => {
                     solutions I have crafted, and ideas I have brought to life. Each one tells
                     a story of innovation, impact, and a relentless drive for quality.
                 </p>
-                <div className="grid grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                     {projects.map((project, idx) => {
                         return (
                             <div

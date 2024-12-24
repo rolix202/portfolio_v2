@@ -39,7 +39,7 @@ export const projects = [
     link: 'https://www.crossborderlogisticsinc.com/',
     stack: ["Nodejs", "Expressjs", "MongoDB", "Ejs"],
     techonologies: ["Nodejs", "Expressjs", "MongoDB", "Ejs", "Bootstrap CSS"],
-    github: "",
+    github: "https://www.crossborderlogisticsinc.com/",
     role: "Backend Developer",
     comment:
       "Being the backbone of this logistics portal was an exciting challenge! I focused on building reliable APIs, ensuring smooth data flow, and handling database integrations. It was all about making the system work efficiently behind the scenes so clients could manage logistics seamlessly.",
