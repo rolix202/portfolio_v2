@@ -13,7 +13,7 @@ import Footer from './components/New/Footer'
 function App() {
 
   return (
-    <>
+    <div className='overflow-x-hidden'>
       <Menu />
       <Hero />
       <About />
@@ -23,7 +23,7 @@ function App() {
       <Tesimonial />
       <Contacts />
       <Footer />
-    </>
+    </div>
   )
 }
 
