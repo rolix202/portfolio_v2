@@ -56,7 +56,7 @@ const Work = () => {
                     })}
                 </div>
                 <div className="flex justify-center pt-16">
-                    <a className="px-8 py-4 rounded-full bg-purple-500 hover:bg-purple-600 text-white font-semibold flex items-center gap-2 shadow-lg transition transform hover:scale-105 cursor-pointer">
+                    <a className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-purple-500 hover:bg-purple-600 text-white font-semibold flex items-center gap-2 shadow-lg transition transform hover:scale-105 cursor-pointer">
                         Explore All My Projects <ArrowLongRightIcon className="w-5 h-5" />
                     </a>
                 </div>

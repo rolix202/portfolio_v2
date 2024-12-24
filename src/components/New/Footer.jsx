@@ -19,7 +19,7 @@ const Footer = () => {
             {/* Footer Content */}
             <div className="max-w-6xl mx-auto text-center px-4">
                 {/* Social Links */}
-                <div className="flex justify-center space-x-8 mb-8">
+                <div className="flex justify-center space-x-4 sm:space-x-8 mb-8">
                     <a
                         href="https://github.com/yourusername"
                         target="_blank"

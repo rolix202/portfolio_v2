@@ -1,5 +1,6 @@
 import React from 'react';
-import { FaEnvelope, FaPhone, FaLinkedin } from 'react-icons/fa';
+import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
+import { FaBlog, FaTwitter } from 'react-icons/fa6';
 
 const Contacts = () => {
     return (
@@ -19,7 +20,7 @@ const Contacts = () => {
                 <div className="grid md:grid-cols-2 gap-12 items-center">
                     {/* Left: Form */}
                     <div>
-                        <h3 className="text-2xl font-semibold text-purple-400 mb-8">Drop me a message</h3>
+                        <h3 className="text-2xl text-center sm:text-left font-semibold text-purple-400 mb-8">Drop me a message</h3>
                         <form className="space-y-6">
                             {/* Name Input */}
                             <div>
@@ -60,42 +61,59 @@ const Contacts = () => {
 
                     {/* Right: Contact Info & Message */}
                     <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
-                        <h3 className="text-2xl font-semibold text-purple-400 mb-6">A Quick Note</h3>
-                        <p className="text-gray-300 leading-relaxed mb-8">
+                        <h3 className="text-2xl text-center sm:text-left font-semibold text-purple-400 mb-6">A Quick Note</h3>
+                        <p className="text-gray-300 leading-relaxed mb-8 text-justify">
                             Thank you for taking the time to reach out! I believe every great collaboration begins with a conversation. 
-                            Don not hesitate to share your thoughts or questions—I will respond promptly.
+                            Do not hesitate to share your thoughts or questions—I will respond promptly.
                         </p>
                         <div className="space-y-4 text-gray-200">
                             {/* Email */}
                             <div className="flex items-center gap-4">
                                 <FaEnvelope className="text-purple-400 w-6 h-6" />
                                 <a
-                                    href="mailto:your-email@example.com"
-                                    className="hover:underline"
+                                    href="mailto:info@rolandoodo.dev"
+                                    className="hover:underline tracking-wider"
                                 >
-                                    your-email@example.com
+                                    info@rolandoodo.dev
                                 </a>
                             </div>
-                            {/* Phone */}
-                            <div className="flex items-center gap-4">
-                                <FaPhone className="text-purple-400 w-6 h-6" />
-                                <a
-                                    href="tel:+123456789"
-                                    className="hover:underline"
-                                >
-                                    +1 (234) 567-89
-                                </a>
-                            </div>
+                            
                             {/* LinkedIn */}
                             <div className="flex items-center gap-4">
                                 <FaLinkedin className="text-purple-400 w-6 h-6" />
                                 <a
-                                    href="https://linkedin.com/in/yourprofile"
+                                    href="https://www.linkedin.com/in/roland-uchenna-oodo/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="hover:underline"
                                 >
-                                    linkedin.com/in/yourprofile
+                                    Roland Uchenna Oodo
+                                </a>
+                            </div>
+                            
+                            {/* Phone */}
+                            <div className="flex items-center gap-4">
+                                <FaTwitter className="text-purple-400 w-6 h-6" />
+                                <a
+                                    href="https://x.com/rocodeify"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:underline"
+                                >
+                                   Oodo Roland Uchenna 
+                                </a>
+                            </div>
+
+                            <div className="flex items-center gap-4">
+                                <FaBlog className="text-purple-400 w-6 h-6" />
+                            
+                                <a
+                                    href="https://zeenomtech.com"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="hover:underline"
+                                >
+                                   Blog
                                 </a>
                             </div>
                         </div>

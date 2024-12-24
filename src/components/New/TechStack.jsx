@@ -29,7 +29,7 @@ const TechStack = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Frontend */}
           <div className="group bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300">
-            <h3 className="text-2xl font-semibold text-white mb-4">Frontend</h3>
+            <h3 className="text-2xl font-semibold text-white mb-4 text-center sm:text-left">Frontend</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-3">
                 <FaReact className="text-blue-500 text-xl group-hover:animate-spin" />
@@ -52,7 +52,7 @@ const TechStack = () => {
 
           {/* Backend */}
           <div className="group bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300">
-            <h3 className="text-2xl font-semibold text-white mb-4">Backend</h3>
+            <h3 className="text-2xl font-semibold text-white mb-4 text-center sm:text-left">Backend</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-3">
                 <FaNodeJs className="text-green-500 text-xl group-hover:animate-spin" />
@@ -77,7 +77,7 @@ const TechStack = () => {
 
           {/* Infrastructure */}
           <div className="group bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300">
-            <h3 className="text-2xl font-semibold text-white mb-4">Infrastructure</h3>
+            <h3 className="text-2xl font-semibold text-white mb-4 text-center sm:text-left">Infrastructure</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-3">
                 <FaDocker className="text-blue-500 text-xl group-hover:animate-spin" />
@@ -96,7 +96,7 @@ const TechStack = () => {
 
           {/* Tools */}
           <div className="group bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-lg shadow-lg hover:scale-105 transform transition-all duration-300">
-            <h3 className="text-2xl font-semibold text-white mb-4">Tools</h3>
+            <h3 className="text-2xl font-semibold text-white mb-4 text-center sm:text-left">Tools</h3>
             <ul className="space-y-3">
               <li className="flex items-center space-x-3">
                 <FaGithub className="text-gray-500 text-xl group-hover:animate-spin" />
