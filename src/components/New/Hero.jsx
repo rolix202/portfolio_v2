@@ -3,10 +3,11 @@ import HeroImage from '../../assets/developer.jpg';
 import { ArrowDownTrayIcon, ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 import { EnvelopeIcon } from "@heroicons/react/20/solid";
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
+import { Link } from 'react-scroll';
 
 const Hero = () => {
     return (
-        <section className="relative scroll-smooth" id="hero">
+        <section className="relative scroll-smooth" id="home">
             <div
                 className="relative h-screen flex items-center justify-center bg-cover bg-center"
                 style={{
@@ -19,7 +20,7 @@ const Hero = () => {
                 <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80 backdrop-blur-sm"></div>
 
                 {/* Hero Content */}
-                <div className="relative z-10 text-center max-w-4xl mx-2 mt-10 bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-gray-100/30">
+                <div className="relative z-10 text-center max-w-4xl mx-2 md:mx-8 mt-10 bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-gray-100/30">
                     <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-snug">
                         I'm Roland Oodo
                     </h1>
@@ -67,12 +68,12 @@ const Hero = () => {
                         >
                             Download CV <ArrowDownTrayIcon className="w-5 h-5" />
                         </a>
-                        <a
-                            href="#contact"
+                        <Link
+                            to="contact" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}
                             className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white flex justify-center gap-2 font-semibold shadow-lg transition transform hover:scale-105"
                         >
                             Contact Me 
-                        </a>
+                        </Link>
                     </div>
                 </div>
             </div>

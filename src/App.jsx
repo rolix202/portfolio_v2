@@ -13,7 +13,7 @@ import Footer from './components/New/Footer'
 function App() {
 
   return (
-    <div className='overflow-x-hidden'>
+    <div className='overflow-x-hidden scroll-smooth'>
       <Menu />
       <Hero />
       <About />

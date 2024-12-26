@@ -4,7 +4,7 @@ import { FaBlog, FaTwitter } from 'react-icons/fa6';
 
 const Contacts = () => {
     return (
-        <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+        <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white" id='contact'>
             <div className="max-w-6xl mx-auto px-6">
                 {/* Title Section */}
                 <div className="text-center mb-16">

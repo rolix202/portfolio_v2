@@ -3,6 +3,7 @@ import { projects } from "../../Data";
 import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
 import { FaArrowRight } from "react-icons/fa6";
 import ProjectModal from "../ProjectModal";
+import { Link } from "react-router";
 
 const Work = () => {
 
@@ -17,7 +18,7 @@ const Work = () => {
     }
 
     return (
-        <section className="py-20 bg-slate-900 text-white">
+        <section className="py-20 bg-slate-900 text-white" id="portfolio">
             <div className="max-w-6xl mx-auto px-6">
                 <h2 className="text-4xl font-bold text-center mb-10">My Work</h2>
                 <p className="text-center text-gray-400 mb-16 max-w-3xl mx-auto">
@@ -56,9 +57,9 @@ const Work = () => {
                     })}
                 </div>
                 <div className="flex justify-center pt-16">
-                    <a className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-purple-500 hover:bg-purple-600 text-white font-semibold flex items-center gap-2 shadow-lg transition transform hover:scale-105 cursor-pointer">
+                    <Link to="/projects" className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-purple-500 hover:bg-purple-600 text-white font-semibold flex items-center gap-2 shadow-lg transition transform hover:scale-105 cursor-pointer">
                         Explore All My Projects <ArrowLongRightIcon className="w-5 h-5" />
-                    </a>
+                    </Link>
                 </div>
             </div>
             <ProjectModal open={open} setOpen={setOpen} project={selectedSkill} />

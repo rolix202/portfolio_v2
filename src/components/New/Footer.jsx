@@ -1,19 +1,21 @@
 import { ChevronDoubleUpIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { FaGithub, FaLinkedin, FaTwitter, FaBlog } from 'react-icons/fa';
+import { Link } from 'react-scroll';
 
 const Footer = () => {
     return (
         <footer className="bg-slate-900/90 py-16 relative text-white">
             {/* Back-to-Top Button */}
             <div className="flex justify-center mb-8">
-                <a
+                <Link
+                    to="home" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}
                     href="#hero"
                     className="bg-purple-600 text-white p-4 rounded-full animate-slowbounce shadow-lg hover:bg-purple-700 transition duration-300"
                     aria-label="Back to top"
                 >
                     <ChevronDoubleUpIcon className="h-6 w-6" />
-                </a>
+                </Link>
             </div>
 
             {/* Footer Content */}

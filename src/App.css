@@ -39,4 +39,12 @@
   }
 }
 
+/* Tailwind utility class example */
+.active {
+  color: #a855f7; 
+  font-weight: bold;
+  border-bottom: 2px solid #a855f7; 
+}
+
+
 

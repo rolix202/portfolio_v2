@@ -4,7 +4,7 @@ import { educationData } from '../../Data';
 
 const Education = () => {
   return (
-    <section className="bg-gradient-to-b from-slate-900 via-gray-800 to-black text-white py-20">
+    <section className="bg-gradient-to-b from-slate-900 via-gray-800 to-black text-white py-20" id='education'>
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
