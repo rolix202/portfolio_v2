@@ -7,6 +7,9 @@ import community_img from "./assets/fixmycommunity.png"
 import skill_img from "./assets/skill lift.png"
 import taskmanager from "./assets/taskmaster.png"
 import rooo from "./assets/rooo.jpg";
+import sopulu from "./assets/sopulu.jpg";
+import hariet from "./assets/harriet.jpg";
+import livinus from "./assets/livinus.jpg"
 
 export const projects = [
   {
@@ -133,26 +136,28 @@ export const educationData = [
     },
   ];
 
-export const testimonials = [
-  {
-    img: rooo,
-    quote:
-      "Working with [Your Name] was a game-changer. They didn’t just solve problems—they anticipated them, offering elegant solutions that transformed our project into a massive success.",
-    name: "Mo Salah",
-    title: "Software Engineer, Liverpool FC",
-  },
-  {
-    img: rooo,
-    quote:
-      "[Your Name]'s creativity and technical expertise are unmatched. Their ability to bridge the gap between vision and execution made all the difference in delivering results we are proud of.",
-    name: "Jane Doe",
-    title: "Project Manager, TechCorp",
-  },
-  {
-    img: rooo,
-    quote:
-      "Every interaction with [Your Name] is inspiring. They bring not just technical skills but empathy and a collaborative spirit that makes every project feel like a shared success story.",
-    name: "John Smith",
-    title: "CEO, StartUp XYZ",
-  },
-];
+  export const testimonials = [
+    {
+      img: hariet,
+      quote:
+        "Roland is a talented software developer and a dependable teammate. Working with him on our e-commerce bookstore and online learning platform was a pleasure. His technical expertise, creativity, and commitment to quality were key to the project's success.",
+      name: "Hariet Johnjaja",
+      title: "Product Manager, SkillLift",
+    },
+    
+    {
+      img: sopulu,
+      quote:
+        "I have worked with Roland Oodo on several projects, and his passion for solving technical challenges always stands out. He is focused, reliable, and committed to delivering great results. I highly recommend him.",
+      name: "Mba Sopuluchukwu",
+      title: "CEO, Zeenom",
+    },
+    {
+      img: livinus,
+      quote:
+        "Roland is more than just a skilled developer. He approaches every project with care and teamwork, making the process smooth and enjoyable. His ability to deliver great results while working well with others is truly inspiring.",
+      name: "Livinus Ekene",
+      title: "Frontend Deveoper, SkillLift",
+    },
+  ];
+  
