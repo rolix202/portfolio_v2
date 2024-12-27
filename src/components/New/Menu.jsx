@@ -22,6 +22,8 @@ const Menu = () => {
         duration: 500,
         offset: -50,
       });
+
+      setIsopen(!isopen)
     } else {
       // Navigate to the target page and scroll after page load
       navigate(targetPage);
@@ -89,7 +91,7 @@ const Menu = () => {
             </li>
               </>
             ) : (
-              <li className="hover:text-purple-600 transition">
+              <li className="hover:text-purple-600 transition active">
               <span
                 onClick={() => handleNavigation("/", "home")}
                 className="cursor-pointer"
