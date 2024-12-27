@@ -2,9 +2,13 @@ import React from "react";
 import { ChevronDoubleRightIcon } from "@heroicons/react/24/solid";
 import { IoClose } from "react-icons/io5";
 import { Link as ScrollLink } from "react-scroll";
-import { Link as RouterLink } from "react-router";
+import { Link as RouterLink, useLocation } from "react-router";
 
-const SideMenu = ({ handleClose }) => {
+const SideMenu = ({ handleClose, handleNavigation }) => {
+  const { pathname } = useLocation()
+  console.log(pathname);
+  
+  
   return (
     <div
       className="fixed inset-0 bg-gradient-to-b from-purple-950 via-purple-900 to-purple-950 text-white z-50 flex flex-col h-screen px-8 py-7 md:hidden transition-transform transform -translate-x-full animate-menuSlideIn"
@@ -29,15 +33,18 @@ const SideMenu = ({ handleClose }) => {
       {/* Navigation Links */}
       <nav className="mt-12">
         <ul className="space-y-8 text-lg font-medium">
-          <li className="group flex items-center gap-4 animate-slideInLink">
+          
+          { pathname === "/" ? (
+            <>
+              <li className="group flex items-center gap-4 animate-slideInLink">
             <ChevronDoubleRightIcon className="w-6 h-6 text-purple-400 group-hover:scale-110 transition duration-300" />
-            <RouterLink
-              to="/"
-              className="hover:text-purple-400 group-hover:translate-x-1 transition duration-300"
-              onClick={handleClose}
-            >
-              Home
-            </RouterLink>
+            
+            <span
+                onClick={() => handleNavigation("/", "home")}
+                className="cursor-pointer"
+              >
+                Home
+              </span>
           </li>
           <li className="group flex items-center gap-4 animate-slideInLink">
             <ChevronDoubleRightIcon className="w-6 h-6 text-purple-400 group-hover:scale-110 transition duration-300" />
@@ -69,7 +76,6 @@ const SideMenu = ({ handleClose }) => {
               Portfolio
             </ScrollLink>
           </li>
-          
           <li className="group flex items-center gap-4 animate-slideInLink delay-450">
             <ChevronDoubleRightIcon className="w-6 h-6 text-purple-400 group-hover:scale-110 transition duration-300" />
             <ScrollLink
@@ -80,6 +86,21 @@ const SideMenu = ({ handleClose }) => {
               Contact
             </ScrollLink>
           </li>
+            </>
+          ) : (
+            <li className="group flex items-center gap-4 animate-slideInLink">
+            <ChevronDoubleRightIcon className="w-6 h-6 text-purple-400 group-hover:scale-110 transition duration-300" />
+            
+            <span
+                onClick={() => handleNavigation("/", "home")}
+                className="cursor-pointer"
+              >
+                Home
+              </span>
+          </li>
+          ) }
+          
+          
         </ul>
       </nav>
 

@@ -29,7 +29,7 @@ const Menu = () => {
         scroller.scrollTo(section, {
           smooth: true,
           duration: 500,
-          offset: -50,
+          // offset: -50,
         });
       }, 100);
     }
@@ -56,7 +56,7 @@ const Menu = () => {
 
       {/* Side Menu */}
 
-      {isopen && <SideMenu handleClose={handleModal} />}
+      {isopen && <SideMenu handleClose={handleModal} handleNavigation={handleNavigation} />}
 
       <div className="w-full bg-slate-900/90 py-1 fixed z-30">
         <nav className="md:flex hidden justify-center py-4 max-w-6xl mx-auto">
