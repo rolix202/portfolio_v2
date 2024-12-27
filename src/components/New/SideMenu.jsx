@@ -1,7 +1,8 @@
 import React from "react";
 import { ChevronDoubleRightIcon } from "@heroicons/react/24/solid";
 import { IoClose } from "react-icons/io5";
-import { Link } from "react-scroll";
+import { Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink } from "react-router";
 
 const SideMenu = ({ handleClose }) => {
   return (
@@ -30,54 +31,54 @@ const SideMenu = ({ handleClose }) => {
         <ul className="space-y-8 text-lg font-medium">
           <li className="group flex items-center gap-4 animate-slideInLink">
             <ChevronDoubleRightIcon className="w-6 h-6 text-purple-400 group-hover:scale-110 transition duration-300" />
-            <Link
-              to="home" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}
+            <RouterLink
+              to="/"
               className="hover:text-purple-400 group-hover:translate-x-1 transition duration-300"
               onClick={handleClose}
             >
               Home
-            </Link>
+            </RouterLink>
           </li>
           <li className="group flex items-center gap-4 animate-slideInLink">
             <ChevronDoubleRightIcon className="w-6 h-6 text-purple-400 group-hover:scale-110 transition duration-300" />
-            <Link 
+            <ScrollLink 
               to="about" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}
               className="hover:text-purple-400 group-hover:translate-x-1 transition duration-300"
               onClick={handleClose}
             >
               About Me
-            </Link>
+            </ScrollLink>
           </li>
           <li className="group flex items-center gap-4 animate-slideInLink delay-300">
             <ChevronDoubleRightIcon className="w-6 h-6 text-purple-400 group-hover:scale-110 transition duration-300" />
-            <Link
+            <ScrollLink
               to="education" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}
               className="hover:text-purple-400 group-hover:translate-x-1 transition duration-300"
               onClick={handleClose}
             >
               Resume
-            </Link>
+            </ScrollLink>
           </li>
           <li className="group flex items-center gap-4 animate-slideInLink delay-150">
             <ChevronDoubleRightIcon className="w-6 h-6 text-purple-400 group-hover:scale-110 transition duration-300" />
-            <Link 
+            <ScrollLink
               to="portfolio" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}
               className="hover:text-purple-400 group-hover:translate-x-1 transition duration-300"
               onClick={handleClose}
             >
               Portfolio
-            </Link>
+            </ScrollLink>
           </li>
           
           <li className="group flex items-center gap-4 animate-slideInLink delay-450">
             <ChevronDoubleRightIcon className="w-6 h-6 text-purple-400 group-hover:scale-110 transition duration-300" />
-            <Link
+            <ScrollLink
               to="contact" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}
               className="hover:text-purple-400 group-hover:translate-x-1 transition duration-300"
               onClick={handleClose}
             >
               Contact
-            </Link>
+            </ScrollLink>
           </li>
         </ul>
       </nav>

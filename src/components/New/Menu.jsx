@@ -1,20 +1,45 @@
 import React, { useEffect, useState } from "react";
 import { HiOutlineMenuAlt3 } from "react-icons/hi";
 import SideMenu from "./SideMenu";
-import { Link } from "react-scroll";
+import { scroller, Link as ScrollLink } from "react-scroll";
+import { Link as RouterLink, useNavigate } from "react-router";
+import { useLocation } from "react-router";
 
 const Menu = () => {
   const [isopen, setIsopen] = useState(false)
+  const { pathname } = useLocation()
+  const navigate = useNavigate()
 
   const handleModal = () => {
     setIsopen(!isopen)
   }
 
+  const handleNavigation = (targetPage, section) => {
+    if (pathname === targetPage) {
+      // If already on the target page, scroll to section
+      scroller.scrollTo(section, {
+        smooth: true,
+        duration: 500,
+        offset: -50,
+      });
+    } else {
+      // Navigate to the target page and scroll after page load
+      navigate(targetPage);
+      setTimeout(() => {
+        scroller.scrollTo(section, {
+          smooth: true,
+          duration: 500,
+          offset: -50,
+        });
+      }, 100);
+    }
+  };
+
   useEffect(() => {
     if (isopen) {
-      document.body.style.overflow = "hidden"; // Disable scrolling
+      document.body.style.overflow = "hidden";
     } else {
-      document.body.style.overflow = ""; // Re-enable scrolling
+      document.body.style.overflow = "";
     }
 
     // Cleanup on component unmount
@@ -38,22 +63,42 @@ const Menu = () => {
 
           {/* Navigation Links */}
           <ul className="hidden md:flex gap-6 text-gray-200 font-semibold">
-            <li className="hover:text-purple-600 transition">
-              <Link to="home" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}>Home</Link>
+            
+            { pathname === "/" ? (
+              <>
+                <li className="hover:text-purple-600 transition">
+              <span
+                onClick={() => handleNavigation("/", "home")}
+                className="cursor-pointer"
+              >
+                Home
+              </span>
             </li>
             <li className="hover:text-purple-600 transition">
-              <Link to="about" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}>About</Link>
+              <ScrollLink to="about" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}>About</ScrollLink>
             </li>
             <li className="hover:text-purple-600 transition">
-              <Link to="education" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}>Resume</Link>
+              <ScrollLink to="education" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}>Resume</ScrollLink>
             </li>
             <li className="hover:text-purple-600 transition">
-              <Link to="portfolio" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}>Portfolio</Link>
+              <ScrollLink to="portfolio" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}>Portfolio</ScrollLink>
             </li>
 
             <li className="hover:text-purple-600 transition">
-              <Link to="contact" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}>Contact</Link>
+              <ScrollLink to="contact" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}>Contact</ScrollLink>
             </li>
+              </>
+            ) : (
+              <li className="hover:text-purple-600 transition">
+              <span
+                onClick={() => handleNavigation("/", "home")}
+                className="cursor-pointer"
+              >
+                Home
+              </span>
+            </li>
+            ) }
+            
           </ul>
         </nav>
       </div>
