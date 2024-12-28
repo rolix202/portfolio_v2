@@ -108,7 +108,7 @@ const SideMenu = ({ handleClose, handleNavigation }) => {
       <div className="mt-auto animate-popIn delay-500">
         <a
           href="#download"
-          className="w-full block text-center py-4 mt-10 bg-purple-500 rounded-full text-white font-bold hover:bg-purple-600 shadow-lg transition duration-300 transform hover:scale-105"
+          className="w-full block text-center py-4 mt-9 bg-purple-500 rounded-full text-white font-bold hover:bg-purple-600 shadow-lg transition duration-300 transform hover:scale-105"
           onClick={handleClose}
         >
           Download CV

@@ -80,12 +80,13 @@ const Hero = () => {
 
             {/* Scroll Down Button */}
             <div className="flex justify-center">
-                <a
-                    href="#about"
+                <Link
+                    to="about"
+                    smooth={true} duration={500} offset={-10} activeClass="active" spy={true}
                     className="bg-purple-500 text-white absolute z-40 bottom-0 md:bottom-4 p-2 md:p-3 rounded-full animate-slowbounce"
                 >
                     <ChevronDoubleDownIcon className="h-4 w-4 md:h-5 md:w-5" />
-                </a>
+                </Link>
             </div>
         </section>
     );

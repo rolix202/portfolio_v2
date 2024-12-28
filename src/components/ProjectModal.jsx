@@ -31,11 +31,11 @@ export default function ProjectModal({ open = false, setOpen, project }) {
           <div className="p-6 sm:p-8 space-y-6 sm:space-y-8 overflow-y-auto max-h-96">
            
             {/* Stack Section */}
-            {project?.techonologies && (
+            {project?.technologies && (
               <div>
-                <h4 className="text-lg sm:text-xl font-semibold text-purple-400">Technologies Used</h4>
+                <h4 className="text-lg sm:text-xl font-semibold text-purple-400">Technologies / Tools Used</h4>
                 <div className="flex flex-wrap gap-3 mt-3">
-                  {project.techonologies.map((tech, index) => (
+                  {project.technologies.map((tech, index) => (
                     <span
                       key={index}
                       className="inline-block rounded-lg bg-gray-800 px-2 sm:px-4 py-1 sm:py-2 text-xs sm:text-sm font-medium text-purple-400 shadow hover:scale-105 hover:bg-purple-500 hover:text-white transition-transform"

@@ -9,7 +9,7 @@ import Footer from '../components/New/Footer'
 const PortfolioPage = () => {
     return (
         <>
-            <header>
+            <header id='intro'>
                 <Menu />
                 <ProjectHero />
             </header>

@@ -1,110 +1,116 @@
 import crossborder_img from "./assets/crossborder_home.png"
 import event_img from "./assets/event-ticket.png"
 import inventory_img from "./assets/inventory2.png"
-import portfolio_img from "./assets/portfolio.png"
-import bookstore_img from "./assets/book store.png"
 import community_img from "./assets/fixmycommunity.png"
-import skill_img from "./assets/skill lift.png"
 import taskmanager from "./assets/taskmaster.png"
-import rooo from "./assets/rooo.jpg";
 import sopulu from "./assets/sopulu.jpg";
 import hariet from "./assets/harriet.jpg";
 import livinus from "./assets/livinus.jpg"
+import askme from "./assets/askmeeee.png"
+import earthplanet from "./assets/earthplanet.png"
+import ckp from "./assets/ckpppp.webp"
+import portfolio from "./assets/portfoliome.png"
+
 
 export const projects = [
   {
     img: taskmanager,
     title: 'Task-Manager Web App',
-    link: '',
+    link: 'https://my-taskmaster.vercel.app/',
     stack: ["Nodejs", "Expressjs", "MongoDB", "HTML / CSS"], 
-    techonologies: [
-      "Nodejs", "Expressjs", "MongoDB", "HTML / CSS", "JWT", "PassportJs", "Cloudinary"
-    ],
+    technologies: ["Nodejs", "Expressjs", "MongoDB", "HTML / CSS", "JWT", "PassportJs", "Cloudinary"],
     role: "Fullstack Developer",
     comment:
-      "This app gave me the opportunity to solve a real-world problem—managing inventories with ease. It was my playground to master backend tools like JWT authentication, Cloudinary image handling, and more. Every challenge I faced made the end product more robust, and I walked away with deeper insights into the MERN stack.",
+      "A web app to manage tasks easily. Built secure user authentication with PassportJs and JWT. Added Cloudinary for file uploads and ensured a smooth, functional design.",
   },
   {
     img: community_img,
     title: 'Issue Tracker Web App',
-    link: 'https://ideasfestcalabar.onrender.com/',
+    link: 'https://fix-my-community-webapp.onrender.com/',
     stack: ["Nodejs", "Expressjs", "MongoDB", "ReactJs", "LeafletJs"], 
-    techonologies: [
-      "Nodejs", "Expressjs", "MongoDB", "ReactJs", "LeafletJs", "Cloudinary", "Tailwind CSS"
-    ],
+    technologies: ["Nodejs", "Expressjs", "MongoDB", "ReactJs", "LeafletJs", "Cloudinary", "TailwindCSS"],
     role: "Fullstack Developer",
     comment:
-      "I wanted to create something impactful, something for the community. This platform allows people to voice concerns—potholes, broken infrastructure, power cuts, you name it—and helps the right people respond. It was rewarding to build something that could improve lives, combining maps (LeafletJS) and a modern tech stack.",
+      "An issue tracker for communities. Integrated an interactive map with LeafletJs for precise issue location. Used Tailwind CSS for responsiveness and Cloudinary for image management.",
   },
   {
     img: crossborder_img,
     title: 'Mini Logistic Portal',
     link: 'https://www.crossborderlogisticsinc.com/',
     stack: ["Nodejs", "Expressjs", "MongoDB", "Ejs"],
-    techonologies: ["Nodejs", "Expressjs", "MongoDB", "Ejs", "Bootstrap CSS"],
-    github: "https://www.crossborderlogisticsinc.com/",
+    technologies: ["Nodejs", "Expressjs", "MongoDB", "Ejs", "BootstrapCSS", "JWT"],
     role: "Backend Developer",
     comment:
-      "Being the backbone of this logistics portal was an exciting challenge! I focused on building reliable APIs, ensuring smooth data flow, and handling database integrations. It was all about making the system work efficiently behind the scenes so clients could manage logistics seamlessly.",
+      "Backend for a logistics platform. Built secure authentication with JWT and optimized database performance for tracking shipments and managing orders.",
   },
   {
-    img: bookstore_img,
-    title: 'Ecommerce Book Store',
-    stack: ["ReactJs"],
-    link: 'https://oodoroland.vercel.app/',
-    techonologies: ["ReactJs", "Pure CSS"],
-    github: "",
+    img: askme,
+    title: 'Question & Answer forum',
+    stack: ["MongoDB", "ExpressJs", "ReactJs", "NodeJs"],
+    link: 'https://askme3mtt.onrender.com/',
+    technologies: ["MongoDB", "ExpressJs", "ReactJs", "NodeJs", "JWT", "TailwindCSS", "PassportJS"],
+    role: "Fullstack Developer",
+    comment:
+      "A platform for users to ask and answer questions. Built with authentication (JWT + PassportJS) and a clean, responsive interface using React and TailwindCSS.",
+  },
+  {
+    img: event_img,
+    title: 'Event Ticket Page with Paystack Integration',
+    stack: ["MongoDB", "ExpressJs", "ReactJs", "NodeJs"],
+    link: 'https://ideasfestcalabar.onrender.com/',
+    technologies: ["MongoDB", "ExpressJs", "ReactJs", "NodeJs", "TailwindCSS", "Paystack API"],
     role: "Frontend Developer",
     comment:
-      "Building this simple yet sleek online bookstore helped me sharpen my React skills. I paid attention to creating a clean UI with smooth interactions to make browsing books enjoyable. Seeing the app come to life made me appreciate the art of combining simplicity and functionality.",
-  }
-    // {
-    //   id: 7,
-    //   // img: Project5,
-    //   category: 'Volunteer',
-    //   title: 'Church Youth Directory',
-    //   link: 'https://ckpodenigboyouth.vercel.app/',
-    //   description:
-    //     'I designed a Church Youth Directory website to strengthen our community bonds. It\'s a simple yet powerful tool for connecting and engaging with our youth.',
-    // },
-    
-    // {
-    //   id: 3,
-    //   // img: Project1,
-    //   category: 'Volunteer',
-    //   title: 'Hotel Booking Website',
-    //   description:
-    //     'I built a cool hotel booking website at Enugu Tech Program. It helps people easily find and book awesome hotels. Check it out to see my coding skills in action!',
-    // },
+      "A ticketing page with Paystack payment integration. Designed a responsive frontend using ReactJs and implemented secure payment flows.",
+    },
+
+    {
+      img: inventory_img,
+      title: 'Mini Inventory Web App',
+      stack: ["MongoDB", "ExpressJs", "Ejs", "NodeJs"],
+      link: 'https://inventory-mgt-app-v1.onrender.com/products',
+      technologies: ["MongoDB", "ExpressJs", "Ejs", "BootstrapCss", "NodeJs", "JWT", "Cloudinary"],
+      role: "Backend Developer",
+      comment:
+      "A lightweight inventory management app. Developed the backend to handle product creation, updates, and deletion, with secure authentication and image uploads using Cloudinary."
+    },
+    {
+      img: earthplanet,
+      title: 'Earthplanet Website',
+      stack: ["Ejs", "ExpressJs", "NodeJs"],
+      link: 'https://www.earthplanetminerals.com/',
+      technologies: ["Ejs", "ExpressJs", "NodeJs", "BootstrapCSS"],
+      role: "Backend Developer",
+      comment:
+      "Corporate website for Earthplanet Minerals. Built using EJS for dynamic templating and Bootstrap for responsive design, ensuring a professional and clean look."
+    },
+    {
+      img: portfolio,
+      title: 'My Portfolio',
+      stack: ["ReactJs", "TailwindCSS", "NodeJs"],
+      link: 'https://rolandoodo.onrender.com/',
+      technologies: ["ReactJs", "ExpressJs", "NodeJs", "TailwindCSS"],
+      role: "Frontend Developer",
+      comment:
+      "My personal portfolio showcasing my skills, projects, and expertise. Built with ReactJs and TailwindCSS for modern, responsive designThis project was personal. I filled old books with sketches, clearing my codebase every time a new idea hit. It was a journey of trial, error, and growth. Hitting deploy felt like a win I won’t forget."
+    },
+    {
+      img: ckp,
+      title: 'Church Youth Directory',
+      stack: ["ReactJs", "MongoDB", "ExpressJs", "NodeJs"],
+      link: 'https://ckpodenigboyouth.vercel.app/',
+      technologies: ["ReactJs", "MongoDB", "ExpressJs", "NodeJs", "BootstrapCss"],
+      role: "Fullstack Developer",
+      comment:
+      "This project was an early experiment as a MERN stack developer. The design? Let's just say it's a color riot! But it was a great stepping stone, and looking back now, I can't help but laugh at how far I have grown since then."
+    },
    
-    // {
-    //   id: 5,
-    //   // img: Project2,
-    //   category: 'Personal',
-    //   title: 'Staff Clocking System',
-    //   description:
-    //     'I designed a Staff Clocking System using QR codes for seamless login, sign-in, and sign-out processes. A simple yet effective solution for efficient attendance tracking.',
-    // },
-    // {
-    //   id: 6,
-    //   // img: Project4,
-    //   category: 'Personal',
-    //   title: 'My CV',
-    //   description:
-    //     'My CV offers a quick overview of my academic and professional journey, highlighting skills, education, qualifications, work experience, and more.',
-    // },
-    
-    // {
-    //   id: 9,
-    //   // img: Project8,
-    //   category: 'Volunteer',
-    //   title: 'School Result Portal',
-    //   description:
-    //     'A user-friendly portal allowing subject teachers to submit results, class teachers to manage students, and administrators to oversee operations.',
-    // },
    
   ];
 
+export const completeProjects = [
+
+]
 export const educationData = [
     {
       title: 'B.Sc, Computer Science',

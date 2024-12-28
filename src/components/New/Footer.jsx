@@ -1,16 +1,18 @@
 import { ChevronDoubleUpIcon } from '@heroicons/react/24/solid';
 import React from 'react';
 import { FaGithub, FaLinkedin, FaTwitter, FaBlog } from 'react-icons/fa';
+import { useLocation } from 'react-router';
 import { Link } from 'react-scroll';
 
 const Footer = () => {
+    const { pathname } = useLocation()
+
     return (
         <footer className="bg-slate-900/90 py-16 relative text-white">
             {/* Back-to-Top Button */}
             <div className="flex justify-center mb-8">
                 <Link
-                    to="home" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}
-                    href="#hero"
+                    to= {`${pathname === "/" ? "home" : "intro" }`} smooth={true} duration={500} offset={-10} activeClass="active" spy={true}
                     className="bg-purple-600 text-white p-4 rounded-full animate-slowbounce shadow-lg hover:bg-purple-700 transition duration-300"
                     aria-label="Back to top"
                 >

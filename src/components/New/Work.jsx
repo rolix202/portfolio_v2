@@ -12,11 +12,12 @@ const Work = () => {
     const { pathname } = useLocation()
 
     const handleModal = (project) => {
-        console.log(project);
 
         setSelectedSkill(project)
         setOpen(true)
     }
+
+    const featuredProjects = projects.slice(0, 4)
 
     return (
         <section className="py-20 bg-slate-900 text-white" id="portfolio">
@@ -33,7 +34,7 @@ const Work = () => {
                 )}
 
                 <div className={`grid grid-cols-1 ${pathname === "/" ? "md:grid-cols-2" : "sm:grid-cols-2 lg:grid-cols-3" }  gap-8`}>
-                    {projects.map((project, idx) => {
+                    { (pathname === "/" ? featuredProjects : projects).map((project, idx) => {
                         return (
                             <div
                                 key={idx}
