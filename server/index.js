@@ -17,8 +17,8 @@ app.use(cors({
 }));
 
 
-const sendEmail = async(c_name, email, message ) => {
-    const output= `
+const sendEmail = async (c_name, email, message) => {
+    const output = `
     <div style="background-color: #1e293b; color: #f8fafc; font-family: Arial, sans-serif; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto;">
       <h2 style="color: #a855f7; text-align: center; margin-bottom: 20px;">New Message from Your Portfolio Website</h2>
       <p style="color: #cbd5e1; font-size: 16px; line-height: 1.6;">
@@ -37,32 +37,29 @@ const sendEmail = async(c_name, email, message ) => {
     </div>
   `;
 
-  const transporter = nodemailer.createTransport({
-    service: 'Zoho',
-    host: 'smtp.zoho.com',
-    port: 587,
-    auth: {
-        user: process.env.ZOHO_USER,
-        pass: process.env.ZOHO_PASS,
+    const transporter = nodemailer.createTransport({
+        service: 'Zoho',
+        host: 'smtp.zoho.com',
+        port: 587,
+        auth: {
+            user: process.env.ZOHO_USER,
+            pass: process.env.ZOHO_PASS,
+        }
+    });
+
+    try {
+        const info = await transporter.sendMail({
+            from: `"Oodo Roland" <${process.env.ZOHO_USER}>`,
+            to: process.env.ZOHO_USER,
+            subject: "New Message from Oodo Roland’s Website ✔",
+            html: output,
+        })
+
+        return info.messageId;
+    } catch (error) {
+        console.error('Error sending email:', error);
+        throw new Error('Failed to send email');
     }
-  });
-
-  try {
-    const info = await transporter.sendMail({
-        from: `"Oodo Roland" <${process.env.ZOHO_USER}>`,
-        to: process.env.ZOHO_USER,
-        subject: "New Message from Oodo Roland’s Website ✔",
-        html: output,
-    })
-
-    res.status(200).json({ message: "Message sent successfully!" });
-
-  } catch (error) {
-    console.error("Error sending email:", error.message);
-      res.status(500).json({
-        message: "Failed to send your message. Please try again later.",
-      });
-  }
 
 }
 
@@ -86,12 +83,12 @@ const verifyRecaptcha = async (token) => {
 app.post("/api/v1/contact", [
     body("name").notEmpty().withMessage("Name is required!").trim().escape(),
     body("email").notEmpty().withMessage("Email is required!").trim().escape().isEmail().withMessage("Not a valid email address!"),
-    body("message").notEmpty().withMessage("Message is required!").trim().escape().isLength({max: 1000}).withMessage("Maximum of 200 characers"),
+    body("message").notEmpty().withMessage("Message is required!").trim().escape().isLength({ max: 1000 }).withMessage("Maximum of 200 characers"),
     body("token").notEmpty().withMessage("reCAPTCHA token is required!"),
 ], async (req, res) => {
     const errors = validationResult(req)
 
-    if (!errors.isEmpty()){
+    if (!errors.isEmpty()) {
         const errorMsg = errors.array().map(err => err.msg)
         return res.status(400).json({
             message: errorMsg
@@ -104,14 +101,25 @@ app.post("/api/v1/contact", [
 
     if (!isHuman) {
         return res.status(400).json({
-            message: "Failed reCAPTCHA verification."
+            message: "Verification failed. Please try again or email me directly. Thanks!"
         })
     }
 
-  
-    const messageId = await sendEmail(name, email, message);
-    
-    
+    try {
+        const messageId = await sendEmail(name, email, message);
+
+        res.status(200).json({ 
+            message: "Wow, thank you for reaching out! Your message means a lot to me, and I will personally get back to you as soon as I can. Until then, take care and have an amazing day!" 
+        });
+        
+    } catch (error) {
+        console.error("Error sending email:", error.message);
+        res.status(500).json({
+            message: "Failed to send your message. Please try again later.",
+        });
+    }
+
+
 })
 
 app.get("/", (req, res) => {
