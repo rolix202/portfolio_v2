@@ -53,9 +53,10 @@ const Contacts = () => {
             message: contactDetail.message,
             token,
         }
+        const backendEndpoint = import.meta.env.VITE_BACKEND_ENDPOINT;
     
         try {
-            const response = await fetch("http://localhost:3000/api/v1/contact", {
+            const response = await fetch(`${backendEndpoint}/api/v1/contact`, {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
