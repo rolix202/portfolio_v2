@@ -1,10 +1,83 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
 import { FaBlog, FaTwitter } from 'react-icons/fa6';
 import { useLocation } from 'react-router';
+import { ToastContainer, Zoom, toast } from 'react-toastify';
 
 const Contacts = () => {
     const { pathname } = useLocation()
+    const [contactDetail, setContactDetail] = useState({
+        name: "",
+        email: "",
+        message: ""
+    })
+
+    const handleForm = (e) => {
+        const { name, value } = e.target
+
+        setContactDetail((prev) => {
+            return {
+                ...prev,
+                [name]: value
+            }
+        })
+    }
+
+    const formSubmit = async (e) => {
+        e.preventDefault();
+    
+        const missingFields = Object.entries(contactDetail).filter(([key, value]) => !value);
+
+        if (missingFields.length === Object.keys(contactDetail).length) {
+            toast.error("All fields are required");
+            return;
+        }
+    
+        if (missingFields.length > 0) {
+            missingFields.forEach(([key]) => {
+                toast.error(`${key} is required`);
+            });
+            return;
+        }
+
+        if (contactDetail.message.length > 1000){
+            toast.error("Your message is too long. Please limit your message to 1000 characters")
+            return
+        }
+
+        const token = await grecaptcha.execute("6Leq26kqAAAAAMZ5l8X4elyjck_kXhv-BYoCkUEs", { action: "submit" })
+
+        const payload = {
+            name: contactDetail.name,
+            email: contactDetail.email,
+            message: contactDetail.message,
+            token,
+        }
+    
+        try {
+            const response = await fetch("http://localhost:3000/api/v1/contact", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(payload)
+            });
+    
+            if (!response.ok) {
+                throw new Error("Could not submit form. Try again!");
+            }
+
+            toast.success("Form submitted successfully!");
+        
+            setContactDetail({ name: "", email: "", message: "" });
+    
+        } catch (error) {
+            // Handle errors
+            toast.error("Failed to send your message.");
+            console.error(error);
+        }
+    };
+    
 
     return (
         <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white" id='contact'>
@@ -36,12 +109,14 @@ const Contacts = () => {
                     {/* Left: Form */}
                     <div>
                         <h3 className="text-2xl text-center sm:text-left font-semibold text-purple-400 mb-8">Drop me a message</h3>
-                        <form className="space-y-6">
+                        <form className="space-y-6" method='post' onSubmit={formSubmit}>
                             {/* Name Input */}
                             <div>
                                 <input
                                     type="text"
                                     name="name"
+                                    value={contactDetail.name}
+                                    onChange={handleForm}
                                     placeholder="Your Name"
                                     className="w-full bg-gray-800 px-4 py-3 text-gray-200 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
                                 />
@@ -51,6 +126,8 @@ const Contacts = () => {
                                 <input
                                     type="email"
                                     name="email"
+                                    value={contactDetail.email}
+                                    onChange={handleForm}
                                     placeholder="Your Email"
                                     className="w-full bg-gray-800 px-4 py-3 text-gray-200 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
                                 />
@@ -60,6 +137,9 @@ const Contacts = () => {
                                 <textarea
                                     name="message"
                                     rows="4"
+                                    value={contactDetail.message}
+                                    onChange={handleForm}
+                                    maxLength={1000}
                                     placeholder="Your Message"
                                     className="w-full bg-gray-800 px-4 py-3 text-gray-200 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
                                 ></textarea>
@@ -135,6 +215,12 @@ const Contacts = () => {
                     </div>
                 </div>
             </div>
+            
+            <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                transition={Zoom}
+            />
         </section>
     );
 };
