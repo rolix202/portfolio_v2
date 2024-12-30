@@ -1,5 +1,5 @@
 import React from 'react';
-import HeroImage from '../../assets/developer.jpg';
+import HeroImage from '../../assets/developer.webp';
 import { ArrowDownTrayIcon, ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
 import { EnvelopeIcon } from "@heroicons/react/20/solid";
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";

@@ -38,19 +38,19 @@ const sendEmail = async(c_name, email, message ) => {
   `;
 
   const transporter = nodemailer.createTransport({
-    service: 'gmail',
-    host: '',
+    service: 'Zoho',
+    host: 'smtp.zoho.com',
     port: 587,
     auth: {
-        user: process.env.MAIL_USER,
-        pass: process.env.MAIL_PASS,
+        user: process.env.ZOHO_USER,
+        pass: process.env.ZOHO_PASS,
     }
   });
 
   try {
     const info = await transporter.sendMail({
-        from: `"Oodo Roland" <${process.env.EMAIL_USER}>`,
-        to: process.env.EMAIL_RECIPIENT,
+        from: `"Oodo Roland" <${process.env.ZOHO_USER}>`,
+        to: process.env.ZOHO_USER,
         subject: "New Message from Oodo Roland’s Website ✔",
         html: output,
     })
@@ -102,19 +102,14 @@ app.post("/api/v1/contact", [
 
     const isHuman = await verifyRecaptcha(token)
 
-    console.log(isHuman);
-    
-    console.log(req.body);
-    
-    
-
-    try {
-        const messageId = await sendEmail(name, email, message);
-
-        
-    } catch (error) {
-        
+    if (!isHuman) {
+        return res.status(400).json({
+            message: "Failed reCAPTCHA verification."
+        })
     }
+
+  
+    const messageId = await sendEmail(name, email, message);
     
     
 })
