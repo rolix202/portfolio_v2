@@ -68,7 +68,7 @@ const Contacts = () => {
                 throw new Error("Could not submit form. Try again!");
             }
 
-            const data = response.json()
+            const data = await response.json()
             console.log(data);
             
 
