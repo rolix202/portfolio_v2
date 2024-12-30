@@ -20,7 +20,7 @@ app.use(cors({
 const sendEmail = async(c_name, email, message ) => {
     const output= `
     <div style="background-color: #1e293b; color: #f8fafc; font-family: Arial, sans-serif; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto;">
-      <h2 style="color: #a855f7; text-align: center; margin-bottom: 20px;">New Message from Your Website</h2>
+      <h2 style="color: #a855f7; text-align: center; margin-bottom: 20px;">New Message from Your Portfolio Website</h2>
       <p style="color: #cbd5e1; font-size: 16px; line-height: 1.6;">
         Hey Roland,  
         You've received a new message from your website. Here's what they said:
@@ -55,7 +55,7 @@ const sendEmail = async(c_name, email, message ) => {
         html: output,
     })
 
-    return info.messageId
+    res.status(200).json({ message: "Message sent successfully!" });
 
   } catch (error) {
     console.error("Error sending email:", error.message);

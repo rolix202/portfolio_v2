@@ -68,12 +68,17 @@ const Contacts = () => {
                 throw new Error("Could not submit form. Try again!");
             }
 
+            const data = response.json()
+            console.log(data);
+            
+
             toast.success("Form submitted successfully!");
         
             setContactDetail({ name: "", email: "", message: "" });
     
         } catch (error) {
-            // Handle errors
+            console.log(error);
+            
             toast.error("Failed to send your message.");
             console.error(error);
         }
