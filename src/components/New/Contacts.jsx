@@ -11,6 +11,7 @@ const Contacts = () => {
         email: "",
         message: ""
     })
+    const [isLoading, setIsLoading] = useState(false)
 
     const handleForm = (e) => {
         const { name, value } = e.target
@@ -56,6 +57,7 @@ const Contacts = () => {
         const backendEndpoint = import.meta.env.VITE_BACKEND_ENDPOINT;
 
         try {
+            setIsLoading(true)
             const response = await fetch(`${backendEndpoint}/api/v1/contact`, {
                 method: "POST",
                 headers: {
@@ -76,6 +78,8 @@ const Contacts = () => {
 
         } catch (error) {
             toast.error(error.message || "Failed to send your message. Please try again.");
+        } finally {
+            setIsLoading(false)
         }
     };
 
@@ -107,11 +111,9 @@ const Contacts = () => {
 
                 {/* Contact Section */}
                 <div className="grid md:grid-cols-2 gap-12 items-center">
-                    {/* Left: Form */}
                     <div>
                         <h3 className="text-2xl text-center sm:text-left font-semibold text-purple-400 mb-8">Drop me a message</h3>
                         <form className="space-y-6" method='post' onSubmit={formSubmit}>
-                            {/* Name Input */}
                             <div>
                                 <input
                                     type="text"
@@ -122,7 +124,7 @@ const Contacts = () => {
                                     className="w-full bg-gray-800 px-4 py-3 text-gray-200 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
                                 />
                             </div>
-                            {/* Email Input */}
+
                             <div>
                                 <input
                                     type="email"
@@ -133,7 +135,7 @@ const Contacts = () => {
                                     className="w-full bg-gray-800 px-4 py-3 text-gray-200 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
                                 />
                             </div>
-                            {/* Message Input */}
+
                             <div>
                                 <textarea
                                     name="message"
@@ -145,17 +147,27 @@ const Contacts = () => {
                                     className="w-full bg-gray-800 px-4 py-3 text-gray-200 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
                                 ></textarea>
                             </div>
-                            {/* Submit Button */}
+
                             <button
                                 type="submit"
-                                className="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 rounded-lg transition"
+                                className="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 rounded-lg transition disabled:bg-purple-400 disabled:cursor-not-allowed"
+                                disabled={isLoading}
                             >
-                                Send Message
+                                {isLoading ? (
+                                    <div className='flex gap-4 items-center justify-center italic'>
+                                        <div class="loader animate-spin border-4 border-white rounded-full border-t-4 border-t-purple-600 w-5 h-5"></div>
+                                        Submitting...
+                                    </div>
+                                ) : (
+                                    "Send Message"
+                                )}
                             </button>
+
+
                         </form>
                     </div>
 
-                    {/* Right: Contact Info & Message */}
+
                     <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
                         <h3 className="text-2xl text-center sm:text-left font-semibold text-purple-400 mb-6">A Quick Note</h3>
                         <p className="text-gray-300 leading-relaxed mb-8 text-justify">
@@ -163,7 +175,7 @@ const Contacts = () => {
                             Do not hesitate to share your thoughts or questions—I will respond promptly.
                         </p>
                         <div className="space-y-4 text-gray-200">
-                            {/* Email */}
+
                             <div className="flex items-center gap-4">
                                 <FaEnvelope className="text-purple-400 w-6 h-6" />
                                 <a
@@ -174,7 +186,7 @@ const Contacts = () => {
                                 </a>
                             </div>
 
-                            {/* LinkedIn */}
+
                             <div className="flex items-center gap-4">
                                 <FaLinkedin className="text-purple-400 w-6 h-6" />
                                 <a
@@ -187,7 +199,7 @@ const Contacts = () => {
                                 </a>
                             </div>
 
-                            {/* Phone */}
+
                             <div className="flex items-center gap-4">
                                 <FaTwitter className="text-purple-400 w-6 h-6" />
                                 <a

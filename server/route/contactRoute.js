@@ -25,9 +25,6 @@ router.post("/", [
 
     const { name, email, message, token } = req.body
 
-    console.log(req.body);
-    
-
     const isHuman = await verifyRecaptcha(token)
 
     try {
