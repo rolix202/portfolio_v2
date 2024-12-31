@@ -46,6 +46,8 @@ const Contacts = () => {
             return
         }
 
+        setIsLoading(true)
+
         const token = await grecaptcha.execute("6Leq26kqAAAAAMZ5l8X4elyjck_kXhv-BYoCkUEs", { action: "submit" })
 
         const payload = {
@@ -57,7 +59,7 @@ const Contacts = () => {
         const backendEndpoint = import.meta.env.VITE_BACKEND_ENDPOINT;
 
         try {
-            setIsLoading(true)
+            
             const response = await fetch(`${backendEndpoint}/api/v1/contact`, {
                 method: "POST",
                 headers: {
