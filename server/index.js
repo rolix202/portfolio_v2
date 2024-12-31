@@ -3,12 +3,33 @@ import * as dotenv from 'dotenv'
 dotenv.config()
 import morgan from 'morgan'
 import cors from 'cors'
-import { body, validationResult } from 'express-validator'
-import nodemailer from 'nodemailer'
-import axios from 'axios'
+import winston from 'winston'
+import rateLimit from 'express-rate-limit';
+import helmet from 'helmet'
+
+import contactRoute from './route/contactRoute.js'
+import { STATUS_CODES } from './utils/statusCodes.js'
+import { errorResponse } from './utils/responseHelpers.js'
+
 
 const app = express()
 
+// Winston logger setup
+const logger = winston.createLogger({
+    level: 'error',
+    format: winston.format.combine(
+        winston.format.timestamp(),
+        winston.format.printf(({ timestamp, level, message, stack }) => {
+            return `${timestamp} [${level.toUpperCase()}]: ${message} ${stack ? `\nStack: ${stack}` : ''}`;
+        })
+    ),
+    transports: [
+        new winston.transports.File({ filename: 'logs/error.log', level: 'error' }),
+        new winston.transports.Console() // immediate feedback during development
+    ],
+})
+
+app.use(helmet())
 app.use(morgan("dev"))
 app.use(express.json())
 app.use(cors({
@@ -16,118 +37,35 @@ app.use(cors({
     allowedHeaders: ["Content-Type"],
 }));
 
-
-const sendEmail = async (c_name, email, message) => {
-    const output = `
-    <div style="background-color: #1e293b; color: #f8fafc; font-family: Arial, sans-serif; padding: 20px; border-radius: 8px; max-width: 600px; margin: auto;">
-      <h2 style="color: #a855f7; text-align: center; margin-bottom: 20px;">New Message from Your Portfolio Website</h2>
-      <p style="color: #cbd5e1; font-size: 16px; line-height: 1.6;">
-        Hey Roland,  
-        You've received a new message from your website. Here's what they said:
-      </p>
-      <div style="background-color: #0f172a; padding: 15px; border-radius: 6px; margin: 20px 0;">
-        <p><strong style="color: #f8fafc;">Name:</strong> <span style="color: #a855f7;">${c_name}</span></p>
-        <p><strong style="color: #f8fafc;">Email:</strong> <span style="color: #a855f7;">${email}</span></p>
-        <p><strong style="color: #f8fafc;">Message:</strong></p>
-        <p style="color: #cbd5e1;">${message}</p>
-      </div>
-      <p style="font-size: 14px; color: #cbd5e1;">
-        Remember to respond to this inquiry as soon as possible to keep up with your amazing branding and client relationships!
-      </p>
-    </div>
-  `;
-
-    const transporter = nodemailer.createTransport({
-        service: 'Zoho',
-        host: 'smtp.zoho.com',
-        port: 587,
-        auth: {
-            user: process.env.ZOHO_USER,
-            pass: process.env.ZOHO_PASS,
-        }
-    });
-
-    try {
-        const info = await transporter.sendMail({
-            from: `"Oodo Roland" <${process.env.ZOHO_USER}>`,
-            to: process.env.ZOHO_USER,
-            subject: "New Message from Oodo Roland’s Website ✔",
-            html: output,
-        })
-
-        return info.messageId;
-    } catch (error) {
-        console.error('Error sending email:', error);
-        throw new Error('Failed to send email');
-    }
-
-}
-
-const verifyRecaptcha = async (token) => {
-    try {
-        const { data } = await axios.post("https://www.google.com/recaptcha/api/siteverify", null, {
-            params: {
-                secret: process.env.RECAPTCHA_SECRET_KEY,
-                response: token
-            }
-        })
-
-        return data.success;
-
-    } catch (error) {
-        console.log("Error verifying reCAPTCHA:", error.message);
-        return false
-    }
-}
-
-app.post("/api/v1/contact", [
-    body("name").notEmpty().withMessage("Name is required!").trim().escape(),
-    body("email").notEmpty().withMessage("Email is required!").trim().escape().isEmail().withMessage("Not a valid email address!"),
-    body("message").notEmpty().withMessage("Message is required!").trim().escape().isLength({ max: 1000 }).withMessage("Maximum of 200 characers"),
-    body("token").notEmpty().withMessage("reCAPTCHA token is required!"),
-], async (req, res) => {
-    const errors = validationResult(req)
-
-    if (!errors.isEmpty()) {
-        const errorMsg = errors.array().map(err => err.msg)
-        return res.status(400).json({
-            message: errorMsg
-        })
-    }
-
-    const { name, email, message, token } = req.body
-
-    const isHuman = await verifyRecaptcha(token)
-
-    if (!isHuman) {
-        return res.status(400).json({
-            message: "Verification failed. Please try again or email me directly. Thanks!"
-        })
-    }
-
-    try {
-        const messageId = await sendEmail(name, email, message);
-
-        res.status(200).json({ 
-            message: "Wow, thank you for reaching out! Your message means a lot to me, and I will personally get back to you as soon as I can. Until then, take care and have an amazing day!" 
-        });
-        
-    } catch (error) {
-        console.error("Error sending email:", error.message);
-        res.status(500).json({
-            message: "Failed to send your message. Please try again later.",
-        });
-    }
-
-
+const limiter = rateLimit({
+    windowMs: 15 * 60 * 1000, // 15 minutes
+    max: 100, //100 request per windowMS
+    message: "Too many requests, please try again later.",
 })
 
+app.use('/api', limiter)
+
+
+app.use("/api/v1/contact", contactRoute)
+
 app.get("/", (req, res) => {
-    res.send("Endpoint connected successfuly. Thanks for dropping by, cheers!");
+    res.send("Endpoint connected successfuly. Cheers!");
+})
+
+
+// Centralized error handler
+app.use((err, req, res, next) => {
+    const statusCode = err.statusCode || STATUS_CODES.INTERNAL_SERVER_ERROR;
+    const message = process.env.NODE_ENV === 'production' ? "An unexpected error occured. Please try again later." : err.message;
+
+    // log the error
+    logger.error(err.message, { stack: err.stack })
+
+    res.status(statusCode).json(errorResponse(message))
 })
 
 const port = process.env.PORT || 3000
 
-app.listen(port, (req, res) => {
+app.listen(port, () => {
     console.log(`server running on port ${port}`);
 })

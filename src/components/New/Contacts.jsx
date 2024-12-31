@@ -25,14 +25,14 @@ const Contacts = () => {
 
     const formSubmit = async (e) => {
         e.preventDefault();
-    
+
         const missingFields = Object.entries(contactDetail).filter(([key, value]) => !value);
 
         if (missingFields.length === Object.keys(contactDetail).length) {
             toast.error("All fields are required");
             return;
         }
-    
+
         if (missingFields.length > 0) {
             missingFields.forEach(([key]) => {
                 toast.error(`${key} is required`);
@@ -40,7 +40,7 @@ const Contacts = () => {
             return;
         }
 
-        if (contactDetail.message.length > 1000){
+        if (contactDetail.message.length > 1000) {
             toast.error("Your message is too long. Please limit your message to 1000 characters")
             return
         }
@@ -54,7 +54,7 @@ const Contacts = () => {
             token,
         }
         const backendEndpoint = import.meta.env.VITE_BACKEND_ENDPOINT;
-    
+
         try {
             const response = await fetch(`${backendEndpoint}/api/v1/contact`, {
                 method: "POST",
@@ -63,27 +63,22 @@ const Contacts = () => {
                 },
                 body: JSON.stringify(payload)
             });
-    
+
             if (!response.ok) {
-                throw new Error("Could not submit form. Try again!");
+                const errorData = await response.json();
+                const errorMessage = errorData.message || "Could not submit form. Try again!";
+                throw new Error(errorMessage);
             }
 
-            const data = await response.json()
-            console.log(data);
-            
-
             toast.success("Form submitted successfully!");
-        
+
             setContactDetail({ name: "", email: "", message: "" });
-    
+
         } catch (error) {
-            console.log(error);
-            
-            toast.error("Failed to send your message.");
-            console.error(error);
+            toast.error(error.message || "Failed to send your message. Please try again.");
         }
     };
-    
+
 
     return (
         <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white" id='contact'>
@@ -221,7 +216,7 @@ const Contacts = () => {
                     </div>
                 </div>
             </div>
-            
+
             <ToastContainer
                 position="top-right"
                 autoClose={5000}
