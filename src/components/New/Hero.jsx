@@ -4,6 +4,7 @@ import { ArrowDownTrayIcon, ChevronDoubleDownIcon } from "@heroicons/react/24/so
 import { EnvelopeIcon } from "@heroicons/react/20/solid";
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 import { Link } from 'react-scroll';
+import CV from "../../assets/OodoRolndUchennaResume.pdf"
 
 const Hero = () => {
     return (
@@ -63,7 +64,8 @@ const Hero = () => {
                     {/* Buttons */}
                     <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
                         <a
-                            href="#resume"
+                            href={CV}
+                            download=""
                             className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-purple-500 hover:bg-purple-600 text-center text-white font-semibold flex items-center justify-center gap-2 shadow-lg transition transform hover:scale-105"
                         >
                             Download CV <ArrowDownTrayIcon className="w-5 h-5" />
