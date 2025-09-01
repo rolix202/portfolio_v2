@@ -26,12 +26,9 @@ const Hero = () => {
                         I'm Roland Oodo
                     </h1>
                     <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-300">
-                        A <span className="text-purple-500 font-medium">Fullstack Developer</span>. I specialize in building scalable backend systems, APIs, and server-side applications.
+                        A <span className="text-purple-500 font-medium">Fullstack Developer</span> who enjoys building things that actually work — from AI-powered resume builders and job match features, to marketplaces for autonomous agents, and apps rebuilt from slow legacy code into something fast and modern.
                     </p>
-                    <p className="mt-6 text-sm sm:text-base md:text-lg text-gray-400 leading-relaxed">
-                        When I am not working, I am exploring new ways to grow—whether it’s building side projects, debugging challenges, or learning something new about technology.{" "}
-                        <span className="text-purple-500 font-medium">I love the feeling of building something meaningful</span>—something that solves a real problem or brings joy to someone’s life.
-                    </p>
+                    
 
                     {/* Social Links */}
                     <div className="flex justify-center space-x-8 my-6 sm:my-8">
