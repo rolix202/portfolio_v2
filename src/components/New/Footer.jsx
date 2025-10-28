@@ -1,74 +1,84 @@
-import { ChevronDoubleUpIcon } from '@heroicons/react/24/solid';
 import React from 'react';
-import { FaGithub, FaLinkedin, FaTwitter, FaBlog } from 'react-icons/fa';
-import { useLocation } from 'react-router';
-import { Link } from 'react-scroll';
+import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
+import { Link as RouterLink } from 'react-router';
 
 const Footer = () => {
-    const { pathname } = useLocation()
-
     return (
-        <footer className="bg-slate-900/90 py-16 relative text-white">
-            {/* Back-to-Top Button */}
-            <div className="flex justify-center mb-8">
-                <Link
-                    to= {`${pathname === "/" ? "home" : "intro" }`} smooth={true} duration={500} offset={-10} activeClass="active" spy={true}
-                    className="bg-purple-600 text-white p-4 rounded-full animate-slowbounce shadow-lg hover:bg-purple-700 transition duration-300"
-                    aria-label="Back to top"
-                >
-                    <ChevronDoubleUpIcon className="h-6 w-6" />
-                </Link>
-            </div>
+        <footer className="bg-black text-white py-16 md:py-20 border-t border-gray-900">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
+                    {/* About */}
+                    <div>
+                        <h3 className="text-sm uppercase tracking-widest text-gray-500 mb-4">About</h3>
+                        <p className="text-gray-400 text-sm leading-relaxed">
+                            Software engineer building scalable web applications with TypeScript, Node.js, and modern technologies.
+                        </p>
+                    </div>
 
-            {/* Footer Content */}
-            <div className="max-w-6xl mx-auto text-center px-4">
-                {/* Social Links */}
-                <div className="flex justify-center space-x-4 sm:space-x-8 mb-8">
-                    <a
-                        href="https://github.com/yourusername"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-purple-400 transition flex items-center gap-2"
-                    >
-                        <FaGithub className="h-5 w-5" />
-                        GitHub
-                    </a>
-                    <a
-                        href="https://www.linkedin.com/in/yourusername"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-purple-400 transition flex items-center gap-2"
-                    >
-                        <FaLinkedin className="h-5 w-5" />
-                        LinkedIn
-                    </a>
-                    <a
-                        href="https://twitter.com/yourusername"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="text-gray-400 hover:text-purple-400 transition flex items-center gap-2"
-                    >
-                        <FaTwitter className="h-5 w-5" />
-                        Twitter
-                    </a>
-                    <a
-                        href="/blog"
-                        className="text-gray-400 hover:text-purple-400 transition flex items-center gap-2"
-                    >
-                        <FaBlog className="h-5 w-5" />
-                        Blog
-                    </a>
+                    {/* Quick Links */}
+                    <div>
+                        <h3 className="text-sm uppercase tracking-widest text-gray-500 mb-4">Navigation</h3>
+                        <ul className="space-y-2 text-sm text-gray-400">
+                            <li>
+                                <RouterLink to="/" className="hover:text-white transition-colors">Home</RouterLink>
+                            </li>
+                            <li>
+                                <RouterLink to="/projects" className="hover:text-white transition-colors">Projects</RouterLink>
+                            </li>
+                            <li>
+                                <a href="mailto:contact@rolandoodo.com" className="hover:text-white transition-colors">Contact</a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    {/* Connect */}
+                    <div>
+                        <h3 className="text-sm uppercase tracking-widest text-gray-500 mb-4">Connect</h3>
+                        <div className="flex flex-col space-y-3">
+                            <a
+                                href="https://github.com/rolix202"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm"
+                            >
+                                <FaGithub className="w-4 h-4" />
+                                <span>GitHub</span>
+                            </a>
+                            <a
+                                href="https://www.linkedin.com/in/roland-uchenna-oodo/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm"
+                            >
+                                <FaLinkedin className="w-4 h-4" />
+                                <span>LinkedIn</span>
+                            </a>
+                            <a
+                                href="https://x.com/rocodeify"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors text-sm"
+                            >
+                                <FaTwitter className="w-4 h-4" />
+                                <span>Twitter</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
-                {/* Personal Message */}
-                <p className="text-gray-400 text-base mb-4 italic">
-                    "Crafted with 💜, creativity, and a relentless pursuit of growth. Every step here represents my journey."
-                </p>
+                {/* Divider */}
+                <div className="h-px bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 mb-8"></div>
 
                 {/* Copyright */}
-                <p className="text-gray-500 text-sm">
-                    © {new Date().getFullYear()} Oodo Roland. All rights reserved. Designed with care to make an impact.
-                </p>
+                <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                    <p>© {new Date().getFullYear()} Roland Oodo. All rights reserved.</p>
+                    <div className="flex items-center gap-2">
+                        <span>Built with</span>
+                        <span className="text-white">React</span>
+                        <span>and</span>
+                        <span className="text-white">Tailwind CSS</span>
+                    </div>
+                </div>
             </div>
         </footer>
     );

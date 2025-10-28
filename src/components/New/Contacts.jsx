@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
-import { FaEnvelope, FaLinkedin } from 'react-icons/fa';
-import { FaBlog, FaTwitter } from 'react-icons/fa6';
+import { useState } from 'react';
+import { FaEnvelope, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { useLocation } from 'react-router';
 import { ToastContainer, Zoom, toast } from 'react-toastify';
+import CV from "../../assets/OodoRolndUchennaResume.pdf"
 
 const Contacts = () => {
     const { pathname } = useLocation()
@@ -15,7 +15,6 @@ const Contacts = () => {
 
     const handleForm = (e) => {
         const { name, value } = e.target
-
         setContactDetail((prev) => {
             return {
                 ...prev,
@@ -59,7 +58,6 @@ const Contacts = () => {
         const backendEndpoint = import.meta.env.VITE_BACKEND_ENDPOINT;
 
         try {
-            
             const response = await fetch(`${backendEndpoint}/api/v1/contact`, {
                 method: "POST",
                 headers: {
@@ -75,7 +73,6 @@ const Contacts = () => {
             }
 
             toast.success("Form submitted successfully!");
-
             setContactDetail({ name: "", email: "", message: "" });
 
         } catch (error) {
@@ -85,36 +82,28 @@ const Contacts = () => {
         }
     };
 
-
     return (
-        <section className="py-20 bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white" id='contact'>
-            <div className="max-w-6xl mx-auto px-6">
-                {/* Title Section */}
-                <div className="text-center mb-16">
-                    {pathname === "/" ? (
-                        <>
-                            <h2 className="text-4xl font-extrabold mb-4">Let's Connect</h2>
-                            <p className="text-gray-300 max-w-2xl mx-auto">
+        <section className="bg-black text-white py-32" id='contact'>
+            <div className="max-w-7xl mx-auto px-6">
+                {/* Section Header */}
+                {pathname === "/" && (
+                    <div className="mb-12 md:mb-16">
+                        <div className="flex items-baseline gap-3 md:gap-6">
+                            <span className="text-4xl md:text-6xl lg:text-8xl font-light tracking-tight">07</span>
+                            <div>
+                                <h2 className="text-2xl md:text-4xl lg:text-6xl font-light mb-2 md:mb-3">Contact</h2>
+                                <p className="text-gray-500 text-sm md:text-lg max-w-2xl">
+                                    Let&apos;s start a conversation about your next project.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                )}
 
-                                Whether you have a question, an opportunity, or just want to say hi, I would love to hear from you.
-                                Fill out the form below, and I will get back to you as soon as possible.
-                            </p>
-                        </>
-                    ) : (
-                        <>
-                            <h2 className="text-3xl font-bold mb-4">Let’s Create Something Extraordinary</h2>
-                            <p className="text-gray-400 text-lg mb-6">
-                                Your ideas deserve thoughtful execution. Let's collaborate and build solutions that deliver real-world impact.
-                            </p>
-                        </>
-                    )}
-
-                </div>
-
-                {/* Contact Section */}
-                <div className="grid md:grid-cols-2 gap-12 items-center">
+                <div className="grid md:grid-cols-2 gap-12 md:gap-16">
+                    {/* Contact Form */}
                     <div>
-                        <h3 className="text-2xl text-center sm:text-left font-semibold text-purple-400 mb-8">Drop me a message</h3>
+                        <h3 className="text-xs uppercase tracking-widest text-gray-500 mb-6 md:mb-8">Get in Touch</h3>
                         <form className="space-y-6" method='post' onSubmit={formSubmit}>
                             <div>
                                 <input
@@ -122,8 +111,8 @@ const Contacts = () => {
                                     name="name"
                                     value={contactDetail.name}
                                     onChange={handleForm}
-                                    placeholder="Your Name"
-                                    className="w-full bg-gray-800 px-4 py-3 text-gray-200 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                                    placeholder="Name"
+                                    className="w-full bg-transparent px-0 py-3 text-white border-b border-gray-800 focus:border-white focus:outline-none transition-colors text-sm"
                                 />
                             </div>
 
@@ -133,8 +122,8 @@ const Contacts = () => {
                                     name="email"
                                     value={contactDetail.email}
                                     onChange={handleForm}
-                                    placeholder="Your Email"
-                                    className="w-full bg-gray-800 px-4 py-3 text-gray-200 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                                    placeholder="Email"
+                                    className="w-full bg-transparent px-0 py-3 text-white border-b border-gray-800 focus:border-white focus:outline-none transition-colors text-sm"
                                 />
                             </div>
 
@@ -145,87 +134,66 @@ const Contacts = () => {
                                     value={contactDetail.message}
                                     onChange={handleForm}
                                     maxLength={1000}
-                                    placeholder="Your Message"
-                                    className="w-full bg-gray-800 px-4 py-3 text-gray-200 border border-gray-700 rounded-lg focus:ring-2 focus:ring-purple-500 focus:outline-none"
+                                    placeholder="Message"
+                                    className="w-full bg-transparent px-0 py-3 text-white border-b border-gray-800 focus:border-white focus:outline-none transition-colors text-sm resize-none"
                                 ></textarea>
                             </div>
 
                             <button
                                 type="submit"
-                                className="w-full bg-purple-500 hover:bg-purple-600 text-white font-semibold py-3 rounded-lg transition disabled:bg-purple-400 disabled:cursor-not-allowed"
+                                className="group inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-colors disabled:opacity-50 disabled:cursor-not-allowed text-sm uppercase tracking-widest"
                                 disabled={isLoading}
                             >
-                                {isLoading ? (
-                                    <div className='flex gap-4 items-center justify-center italic'>
-                                        <div class="loader animate-spin border-4 border-white rounded-full border-t-4 border-t-purple-600 w-5 h-5"></div>
-                                        Submitting...
-                                    </div>
-                                ) : (
-                                    "Send Message"
-                                )}
+                                {isLoading ? "Sending..." : "Send Message"}
                             </button>
-
-
                         </form>
                     </div>
 
+                    {/* Contact Info */}
+                    <div className="space-y-8">
+                        <div>
+                            <h3 className="text-xs uppercase tracking-widest text-gray-500 mb-6">Contact Information</h3>
+                            <p className="text-gray-400 text-sm leading-relaxed mb-8">
+                                Whether you have a project in mind, a question, or just want to connect, I&apos;d love to hear from you.
+                            </p>
+                        </div>
 
-                    <div className="bg-gray-800 p-8 rounded-lg shadow-lg">
-                        <h3 className="text-2xl text-center sm:text-left font-semibold text-purple-400 mb-6">A Quick Note</h3>
-                        <p className="text-gray-300 leading-relaxed mb-8 text-justify">
-                            Thank you for taking the time to reach out! I believe every great collaboration begins with a conversation.
-                            Do not hesitate to share your thoughts or questions—I will respond promptly.
-                        </p>
-                        <div className="space-y-4 text-gray-200">
+                        <div className="space-y-4 text-sm">
+                            <a
+                                href="mailto:dev@oodoroland.com"
+                                className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
+                            >
+                                <FaEnvelope className="w-4 h-4" />
+                                <span>dev@oodoroland.com</span>
+                            </a>
 
-                            <div className="flex items-center gap-4">
-                                <FaEnvelope className="text-purple-400 w-6 h-6" />
-                                <a
-                                    href="mailto:info@rolandoodo.dev"
-                                    className="hover:underline tracking-wider"
-                                >
-                                    dev@oodoroland.com
-                                </a>
-                            </div>
+                            <a
+                                href="https://www.linkedin.com/in/roland-uchenna-oodo/"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
+                            >
+                                <FaLinkedin className="w-4 h-4" />
+                                <span>LinkedIn</span>
+                            </a>
 
+                            <a
+                                href="https://x.com/rocodeify"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
+                            >
+                                <FaTwitter className="w-4 h-4" />
+                                <span>Twitter</span>
+                            </a>
 
-                            <div className="flex items-center gap-4">
-                                <FaLinkedin className="text-purple-400 w-6 h-6" />
-                                <a
-                                    href="https://www.linkedin.com/in/roland-uchenna-oodo/"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:underline"
-                                >
-                                    Roland Uchenna Oodo
-                                </a>
-                            </div>
-
-
-                            <div className="flex items-center gap-4">
-                                <FaTwitter className="text-purple-400 w-6 h-6" />
-                                <a
-                                    href="https://x.com/rocodeify"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:underline"
-                                >
-                                    Oodo Roland Uchenna
-                                </a>
-                            </div>
-
-                            <div className="flex items-center gap-4">
-                                <FaBlog className="text-purple-400 w-6 h-6" />
-
-                                <a
-                                    href="https://zeenomtech.com"
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="hover:underline"
-                                >
-                                    Blog - zeenomtech
-                                </a>
-                            </div>
+                            <a
+                                href={CV}
+                                download=""
+                                className="flex items-center gap-3 text-gray-400 hover:text-white transition-colors"
+                            >
+                                <span>Download CV</span>
+                            </a>
                         </div>
                     </div>
                 </div>

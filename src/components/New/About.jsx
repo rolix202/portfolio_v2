@@ -1,55 +1,78 @@
-import React from 'react'
 import rooo from "../../assets/rooo.jpg";
 import codee from "../../assets/codeee.jpg";
 
 const About = () => {
     return (
-        <section className="bg-slate-900" id='about'>
-            <div className="max-w-6xl mx-auto text-white py-24 ">
+        <section className="bg-black text-white py-32" id='about'>
+            <div className="max-w-7xl mx-auto px-6">
 
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center md:mx-8">
+                {/* Section Number & Header */}
+                <div className="mb-12 md:mb-16">
+                    <div className="flex items-baseline gap-3 md:gap-6">
+                        <span className="text-4xl md:text-6xl lg:text-8xl font-light tracking-tight">01</span>
+                        <div>
+                            <h2 className="text-2xl md:text-4xl lg:text-6xl font-light mb-2 md:mb-3">About Me</h2>
+                            <p className="text-gray-500 text-sm md:text-lg max-w-2xl">
+                                A brief introduction to who I am and what drives my work.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
 
                     {/* Images */}
-                    <div className="relative h-72 md:h-80 lg:h-96">
+                    <div className="lg:col-span-5 relative h-64 md:h-80 lg:h-auto mb-8 lg:mb-0">
 
                         {/* First Image - Tilted Right */}
-                        <div className="absolute md:top-6 left-10 md:left-1/4 lg:left-10 transform -rotate-6 shadow-lg bg-white p-2 z-10">
+                        <div className="absolute top-0 left-4 md:left-8 lg:left-10 transform -rotate-6 shadow-lg bg-white p-2 z-10">
                             <img
                                 src={rooo}
                                 alt="My latest pic!"
-                                className="w-36 sm:w-52 md:w-36 lg:w-52"
+                                className="w-28 sm:w-36 md:w-44 lg:w-52"
                             />
-                            <p className="text-center mt-2 text-gray-600 font-semibold">The Visionary!</p>
+                            <p className="text-center mt-1 text-gray-600 text-xs md:text-sm font-semibold">The Visionary!</p>
                         </div>
 
                         {/* Second Image - Tilted Left and Lower */}
-                        <div className="absolute top-20 md:top-28 left-44 md:left-80 lg:left-48 transform rotate-12 shadow-lg bg-white p-2">
+                        <div className="absolute top-16 md:top-24 left-32 md:left-56 lg:left-48 transform rotate-12 shadow-lg bg-white p-2">
                             <img
                                 src={codee}
                                 alt="My workflow!"
-                                className="w-36 sm:w-52 md:w-36 lg:w-52"
+                                className="w-28 sm:w-36 md:w-44 lg:w-52"
                             />
-                            <p className="text-center mt-2 text-gray-600 font-semibold">The Grind!</p>
+                            <p className="text-center mt-1 text-gray-600 text-xs md:text-sm font-semibold">The Grind!</p>
                         </div>
                     </div>
 
                     {/* About Content */}
-                    <div className="space-y-4 text-lg leading-relaxed text-justify lg:text-left px-5 md:px-0 mt-24 lg:mt-0">
-                        <h2 className="text-4xl font-bold text-white mb-6 text-center lg:text-left">About Me</h2>
-                       
-                        <p>
-                
-                            I’m a <span className="text-purple-400 font-semibold">fullstack developer</span> with a few years of experience bringing ideas to life. I’ve worked on everything from rebuilding legacy codebases to shipping new features that scale without breaking.
-
+                    <div className="lg:col-span-7 space-y-4 md:space-y-5">
+                        <p className="text-sm md:text-base text-gray-400 leading-relaxed">
+                            I&apos;ve spent the last two years turning ideas into <span className="text-gray-300">reliable, scalable web applications</span>. Most of my work revolves around <span className="text-gray-300">TypeScript, Node.js, Express, MySQL, and MongoDB</span>, but I enjoy picking up whatever tools get the job done.
                         </p>
 
-                        <p> I work with React, Next.js, Node.js, PostgreSQL, MongoDB, and cloud services — building apps that are reliable and easy to maintain. I’ve also had hands-on experience adding AI features. </p>
-                        
-                        <p>That means I can jump in quickly, whether it’s improving an existing platform or helping shape something new. More than anything, I care about making sure the tech scales smoothly without losing sight of the user experience.</p>
-                        
-                        <p className="">
-                            Outside of work, I’m constantly exploring new technologies, learning, and building side projects that bring me joy. {" "} <span className="text-purple-400 font-semibold">I would love to connect</span>  and help turn your ideas into reality.
+                        <p className="text-sm md:text-base text-gray-400 leading-relaxed">
+                            I&apos;ve rebuilt <span className="text-gray-300">slow, messy systems into clean, maintainable codebases</span>, worked closely with developers, designers and product teams, and shipped features that genuinely improve user experience. <span className="text-gray-300">Clean code, clear communication, and delivering what I promise</span> are non-negotiables.
                         </p>
+
+                        <p className="text-sm md:text-base text-gray-400 leading-relaxed">
+                            I work with <span className="text-gray-300">React, Next.js, Node.js, PostgreSQL, MongoDB</span>, and cloud services — building apps that are reliable and easy to maintain. I&apos;ve also had hands-on experience <span className="text-gray-300">adding AI features</span> and <span className="text-gray-300">collaborating with cross-functional teams</span> to deliver end-to-end solutions.
+                        </p>
+                        
+                        <p className="text-sm md:text-base text-gray-400 leading-relaxed">
+                            My experience includes building <span className="text-gray-300">AI-powered resume builders</span>, <span className="text-gray-300">job portals</span>, and <span className="text-gray-300">marketplaces for autonomous agents</span>. I&apos;m comfortable working independently or as part of a team, and I focus on writing code that&apos;s not just functional, but also maintainable and well-documented.
+                        </p>
+
+                        <div className="pt-6 md:pt-8 border-t border-gray-800 space-y-2">
+                            <div className="flex items-center gap-2 text-xs md:text-sm">
+                                <span className="text-gray-600">Current Focus:</span>
+                                <span className="text-gray-300">Backend Engineering & System Architecture</span>
+                            </div>
+                            <div className="flex items-center gap-2 text-xs md:text-sm">
+                                <span className="text-gray-600">Available for:</span>
+                                <span className="text-gray-300">Contract & Full-time Opportunities</span>
+                            </div>
+                        </div>
 
 
 

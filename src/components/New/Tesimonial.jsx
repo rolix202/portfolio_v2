@@ -1,74 +1,61 @@
 import React from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
-
-// Import Swiper styles
-import "swiper/css";
-import "swiper/css/pagination";
-
-import { Autoplay, Pagination } from "swiper/modules";
-
-import wood from "../../assets/wood.jpg";
 import { testimonials } from "../../Data";
 import avatar from "../../assets/avartar.png"
 
-
-
 const Testimonial = () => {
   return (
-    <section
-      className="relative flex w-full items-center justify-center bg-cover bg-center px-4 py-16 md:py-24 lg:px-8 bg-fixed"
-      style={{ backgroundImage: `url(${wood})` }}
-    >
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/90"></div>
+    <section className="bg-black text-white py-32" id='testimonial'>
+      <div className="max-w-7xl mx-auto px-6">
+        {/* Section Header */}
+        <div className="mb-12 md:mb-16">
+          <div className="flex items-baseline gap-3 md:gap-6">
+            <span className="text-4xl md:text-6xl lg:text-8xl font-light tracking-tight">06</span>
+            <div>
+              <h2 className="text-2xl md:text-4xl lg:text-6xl font-light mb-2 md:mb-3">Testimonials</h2>
+              <p className="text-gray-500 text-sm md:text-lg max-w-2xl">
+                What colleagues and collaborators say about working with me.
+              </p>
+            </div>
+          </div>
+        </div>
 
-      {/* Swiper Content */}
-      <Swiper
-        spaceBetween={30}
-        centeredSlides={true}
-        autoplay={{
-          delay: 6000,
-          disableOnInteraction: false,
-        }}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Autoplay, Pagination]}
-        className="mySwiper max-w-4xl px-6 relative z-10"
-      >
-        {testimonials.map((testimonial, idx) => (
-         
-          <SwiperSlide
-            key={idx}
-            className="bg-white/10 backdrop-blur-lg rounded-lg shadow-lg px-8 pt-8 pb-16 hover:scale-105 transition-all duration-300"
-          >
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-0 md:gap-6 items-center">
-              {/* Image Section */}
-              <div className="flex justify-center items-center mb-6 sm:mb-0">
-                <img
-                  src={testimonial.img || avatar}
-                  alt={testimonial.name}
-                  className="rounded-full h-32 w-32 sm:h-40 sm:w-40 object-cover border-4 border-purple-500 shadow-md"
-                />
+        {/* Testimonials Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 md:gap-8">
+          {testimonials.map((testimonial, idx) => (
+            <div
+              key={idx}
+              className="flex flex-col p-6 md:p-8 border border-gray-900 hover:border-gray-800 transition-colors"
+            >
+              {/* Quote */}
+              <div className="mb-6 md:mb-8">
+                <div className="w-12 h-px bg-gradient-to-r from-slate-500 to-transparent mb-4"></div>
+                <p className="text-gray-300 text-sm md:text-base leading-relaxed">
+                  &ldquo;{testimonial.quote}&rdquo;
+                </p>
               </div>
 
-              {/* Content Section */}
-              <div className="col-span-2 text-center md:text-left">
-                <p className="text-gray-300 italic text-lg leading-relaxed mb-4">
-                  "{testimonial.quote}"
-                </p>
-                <div className="text-purple-400 font-bold text-xl sm:text-2xl">
-                  {testimonial.name}
+              {/* Author */}
+              <div className="mt-auto flex items-center gap-4">
+                <div className="flex-shrink-0">
+                  <img
+                    src={testimonial.img || avatar}
+                    alt={testimonial.name}
+                    className="w-12 h-12 md:w-14 md:h-14 rounded-full object-cover border border-gray-800"
+                  />
                 </div>
-                <div className="text-gray-500 text-sm sm:text-base">
-                  {testimonial.title}
+                <div>
+                  <div className="text-white text-sm md:text-base font-light mb-1">
+                    {testimonial.name}
+                  </div>
+                  <div className="text-gray-500 text-xs md:text-sm">
+                    {testimonial.title}
+                  </div>
                 </div>
               </div>
             </div>
-          </SwiperSlide>
-
-        ))}
-      </Swiper>
+          ))}
+        </div>
+      </div>
     </section>
   );
 };

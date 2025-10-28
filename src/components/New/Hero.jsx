@@ -1,90 +1,122 @@
-import React from 'react';
 import HeroImage from '../../assets/developer.webp';
-import { ArrowDownTrayIcon, ChevronDoubleDownIcon } from "@heroicons/react/24/solid";
-import { EnvelopeIcon } from "@heroicons/react/20/solid";
+import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 import { Link } from 'react-scroll';
 import CV from "../../assets/OodoRolndUchennaResume.pdf"
 
 const Hero = () => {
     return (
-        <section className="relative scroll-smooth" id="home">
+        <section className="relative h-screen flex items-center justify-center bg-black text-white overflow-hidden" id="home">
+            {/* Background Image with Overlay */}
             <div
-                className="relative h-screen flex items-center justify-center bg-cover bg-center"
+                className="absolute inset-0 opacity-20"
                 style={{
                     backgroundImage: `url(${HeroImage})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                 }}
             >
-                {/* Background Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/40 to-black/80 backdrop-blur-sm"></div>
+            </div>
+            
+            <div className="absolute inset-0 bg-gradient-to-b from-black via-black to-black"></div>
 
-                {/* Hero Content */}
-                <div className="relative z-10 text-center max-w-4xl mx-2 md:mx-8 mt-10 bg-white/10 backdrop-blur-xl p-8 rounded-3xl shadow-2xl border border-gray-100/30">
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-white tracking-tight leading-snug">
-                        I'm Roland Oodo
+            {/* Content */}
+            <div className="relative z-10 max-w-7xl mx-auto px-6 w-full">
+                <div className="max-w-4xl">
+                    {/* Greeting */}
+                    <div className="mb-6 md:mb-8 text-gray-500 text-sm md:text-base">
+                        <span className="inline-block mr-2">—</span>
+                        <span className="tracking-widest uppercase">Hey there, I&apos;m</span>
+                    </div>
+
+                    {/* Name */}
+                    <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tight mb-6 md:mb-8">
+                        Roland Oodo
                     </h1>
-                    <p className="mt-4 text-base sm:text-lg md:text-xl text-gray-300">
-                        A <span className="text-purple-500 font-medium">Fullstack Developer</span> who enjoys building things that actually work — from AI-powered resume builders and job match features, to marketplaces for autonomous agents, and apps rebuilt from slow legacy code into something fast and modern.
+
+                    {/* Title */}
+                    <div className="mb-8 md:mb-12">
+                        <p className="text-xl md:text-2xl lg:text-3xl font-light text-gray-300 leading-relaxed">
+                            Building systems that power modern applications
+                        </p>
+                    </div>
+
+                    {/* Description */}
+                    <p className="text-base md:text-lg text-gray-400 mb-10 md:mb-12 leading-relaxed max-w-2xl">
+                        I write code that runs in production. APIs that handle real traffic. Databases that scale. 
+                        Currently building AI-powered hiring platforms and refactoring legacy systems into something you&apos;d actually want to work on.
                     </p>
-                    
+
+                    {/* CTA Buttons */}
+                    <div className="flex flex-col sm:flex-row gap-4 mb-12 md:mb-16">
+                        <a
+                            href={CV}
+                            download=""
+                            className="group inline-flex items-center gap-2 px-6 py-3 border border-white text-white hover:bg-white hover:text-black transition-colors text-sm md:text-base font-light tracking-wide uppercase"
+                        >
+                            Download CV
+                            <ArrowLongRightIcon className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+                        </a>
+                        <Link
+                            to="contact" 
+                            smooth={true} 
+                            duration={500} 
+                            offset={-10} 
+                            activeClass="active" 
+                            spy={true}
+                            className="inline-flex items-center gap-2 px-6 py-3 cursor-pointer border border-gray-700 text-gray-400 hover:border-white hover:text-white transition-colors text-sm md:text-base font-light tracking-wide uppercase"
+                        >
+                            Contact Me
+                            <ArrowLongRightIcon className="w-4 h-4" />
+                        </Link>
+                    </div>
 
                     {/* Social Links */}
-                    <div className="flex justify-center space-x-8 my-6 sm:my-8">
+                    <div className="flex items-center gap-2">
+                        <div className="w-12 h-px bg-gradient-to-r from-gray-800 to-transparent"></div>
+                        <div className="flex items-center gap-4 text-gray-500">
                         <a
                             href="https://www.linkedin.com/in/roland-uchenna-oodo/"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center space-x-2 text-white hover:text-purple-600 transition"
+                                className="hover:text-white transition-colors"
                         >
-                            <FaLinkedin className="w-5 h-5 sm:w-6 sm:h-6" />
+                                <FaLinkedin className="w-5 h-5" />
                         </a>
                         <a
                             href="https://x.com/rocodeify"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center space-x-2 text-white hover:text-purple-600 transition"
+                                className="hover:text-white transition-colors"
                         >
-                            <FaTwitter className="w-5 h-5 sm:w-6 sm:h-6" />
+                                <FaTwitter className="w-5 h-5" />
                         </a>
                         <a
                             href="https://github.com/rolix202"
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center space-x-2 text-white hover:text-purple-600 transition"
+                                className="hover:text-white transition-colors"
                         >
-                            <FaGithub className="w-5 h-5 sm:w-6 sm:h-6" />
+                                <FaGithub className="w-5 h-5" />
                         </a>
                     </div>
-
-                    {/* Buttons */}
-                    <div className="flex flex-col sm:flex-row justify-center gap-4 mt-6">
-                        <a
-                            href={CV}
-                            download=""
-                            className="px-6 sm:px-8 py-3 sm:py-4 rounded-full bg-purple-500 hover:bg-purple-600 text-center text-white font-semibold flex items-center justify-center gap-2 shadow-lg transition transform hover:scale-105"
-                        >
-                            Download CV <ArrowDownTrayIcon className="w-5 h-5" />
-                        </a>
-                        <Link
-                            to="contact" smooth={true} duration={500} offset={-10} activeClass="active" spy={true}
-                            className="px-6 sm:px-8 py-3 sm:py-4 rounded-full border border-purple-500 text-purple-500 hover:bg-purple-500 hover:text-white flex justify-center gap-2 font-semibold shadow-lg transition transform hover:scale-105"
-                        >
-                            Contact Me 
-                        </Link>
                     </div>
                 </div>
             </div>
 
-            {/* Scroll Down Button */}
-            <div className="flex justify-center">
+            {/* Scroll Indicator */}
+            <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
                 <Link
                     to="about"
-                    smooth={true} duration={500} offset={-10} activeClass="active" spy={true}
-                    className="bg-purple-500 text-white absolute z-40 bottom-0 md:bottom-4 p-2 md:p-3 rounded-full animate-slowbounce"
+                    smooth={true}
+                    duration={500}
+                    offset={-10}
+                    activeClass="active"
+                    spy={true}
+                    className="flex flex-col items-center gap-2 text-gray-500 hover:text-white transition-colors group"
                 >
-                    <ChevronDoubleDownIcon className="h-4 w-4 md:h-5 md:w-5" />
+                    <span className="text-xs uppercase tracking-widest">Scroll</span>
+                    <div className="w-px h-12 bg-gradient-to-b from-gray-700 to-transparent"></div>
                 </Link>
             </div>
         </section>

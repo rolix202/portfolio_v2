@@ -3,6 +3,7 @@ import './App.css'
 import Menu from './components/New/Menu'
 import Hero from './components/New/Hero'
 import About from './components/New/About'
+import Experience from './components/New/Experience'
 import Education from './components/New/Education'
 import TechStack from './components/New/TechStack'
 import Work from './components/New/Work'
@@ -17,9 +18,10 @@ function App() {
       <Menu />
       <Hero />
       <About />
-      <Education />
-      <TechStack />
       <Work />
+      <Experience />
+      <TechStack />
+      <Education />
       <Tesimonial />
       <Contacts />
       <Footer />

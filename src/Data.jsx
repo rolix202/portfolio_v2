@@ -118,6 +118,7 @@ export const educationData = [
       duration: '2019 - 2022',
       description:
         'Laid the foundation for a career in tech by mastering algorithms, software engineering, and data structures. Focused on building scalable systems.',
+      type: 'degree'
     },
     {
       title: 'NCE, Computer / Mathematics Education',
@@ -125,13 +126,18 @@ export const educationData = [
       duration: '2016 - 2019',
       description:
         'Gained expertise in teaching and curriculum development, blending computer science and mathematical concepts for education.',
+      type: 'degree'
     },
+  ];
+
+export const certificationsData = [
     {
       title: 'Software Development Program',
       institution: '3 Million Technical Talent (3MTT)',
       duration: '2024',
       description:
         'Specialized in modern frameworks like React, Node.js, and MongoDB. Gained hands-on experience with DevOps and engineering best practices.',
+      type: 'certification'
     },
     {
       title: 'Web Development Bootcamp',
@@ -139,7 +145,72 @@ export const educationData = [
       duration: '2022',
       description:
         'Completed a rigorous course in full-stack development. Learned to build responsive, dynamic web applications using modern tools.',
+      type: 'certification'
     },
+  ];
+
+  export const experienceData = [
+    {
+      id: "1",
+      title: "Full-Stack Developer",
+      company: "LoubbyAI",
+      location: "Remote",
+      startDate: "2024-12",
+      endDate: "",
+      current: false,
+      link: "https://www.loubby.ai/",
+      achievements: [
+        "Helped build an AI-powered resume builder using Next.js, Node.js, and MongoDB.",
+        "Worked on a job portal with advanced search and filtering features.",
+        "Contributed to an AI agent marketplace handling auth, routes, and data connections."
+      ]
+    },
+    {
+      id: "2",
+      title: "Full Stack Developer",
+      company: "The Factory Place",
+      location: "Hybrid",
+      startDate: "2024-09",
+      endDate: "2025-07",
+      current: false,
+      link: "https://techfactory.xyz/",
+      achievements: [
+        "Rebuilt the company's main web app using React and Node.js.",
+        "Mentored an intern and handled production fixes and deployments.",
+        "Reduced API response time by ~20%."
+      ]
+    },
+    {
+      id: "3",
+      title: "Full Stack Developer",
+      company: "TRIIBE",
+      location: "Remote",
+      startDate: "2023-06",
+      endDate: "2024-08",
+      current: false,
+      link: "https://triibeedu.com/",
+      achievements: [
+        "Migrated their static site to React + Node.js.",
+        "Collaborated with design and marketing teams to ship features.",
+        "Deployed the site on a VPS, improving SEO and load speed."
+      ]
+    },
+    {
+      id: "4",
+      title: "Frontend Developer",
+      company: "DaHel Technologies",
+      location: "Remote",
+      startDate: "2024",
+      endDate: "2025-03",
+      current: false,
+      link: "https://www.daheltech.com/",
+      achievements: [
+        "Developed and maintained responsive, user-friendly websites using React.js, JavaScript, HTML5, and CSS3.",
+        "Collaborated with designers to implement seamless UI/UX and ensure cross-browser compatibility.",
+        "Optimized web pages for performance and accessibility, improving load times and user engagement.",
+        "Delivered clean, maintainable code and launched websites that provided smooth, engaging user experiences."
+      ]
+    }
   ];
 
   export const testimonials = [

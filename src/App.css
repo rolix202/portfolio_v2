@@ -7,6 +7,22 @@
 @tailwind utilities;
 
 
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hide scrollbar for all browsers */
+* {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+*::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+
 .swiper-button-prev, .swiper-button-next{
   display: none !important;
 }
@@ -39,11 +55,10 @@
   }
 }
 
-/* Tailwind utility class example */
+/* Active navigation state */
 .active {
-  color: #a855f7; 
-  font-weight: bold;
-  border-bottom: 2px solid #a855f7; 
+  color: #d4d4d8;
+  border-bottom: 1px solid #d4d4d8;
 }
 
 
