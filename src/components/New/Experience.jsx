@@ -1,5 +1,4 @@
 import { BriefcaseIcon } from '@heroicons/react/24/solid';
-import React from 'react';
 import { experienceData } from '../../Data';
 
 const Experience = () => {
@@ -9,7 +8,7 @@ const Experience = () => {
         {/* Section Header */}
         <div className="mb-12 md:mb-16">
           <div className="flex items-baseline gap-3 md:gap-6">
-            <span className="text-4xl md:text-6xl lg:text-8xl font-light tracking-tight">03</span>
+            <span className="text-4xl md:text-6xl lg:text-8xl font-light tracking-tight">02</span>
             <div>
               <h2 className="text-2xl md:text-4xl lg:text-6xl font-light mb-2 md:mb-3">Experience</h2>
               <p className="text-gray-500 text-sm md:text-lg max-w-2xl">

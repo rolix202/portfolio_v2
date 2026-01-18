@@ -26,7 +26,7 @@ const Contacts = () => {
     const formSubmit = async (e) => {
         e.preventDefault();
 
-        const missingFields = Object.entries(contactDetail).filter(([key, value]) => !value);
+        const missingFields = Object.entries(contactDetail).filter(([, value]) => !value);
 
         if (missingFields.length === Object.keys(contactDetail).length) {
             toast.error("All fields are required");
@@ -76,6 +76,7 @@ const Contacts = () => {
             setContactDetail({ name: "", email: "", message: "" });
 
         } catch (error) {
+            console.log("error", error);
             toast.error(error.message || "Failed to send your message. Please try again.");
         } finally {
             setIsLoading(false)

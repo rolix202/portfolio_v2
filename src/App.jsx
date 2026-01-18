@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import Menu from './components/New/Menu'
 import Hero from './components/New/Hero'
@@ -18,8 +17,8 @@ function App() {
       <Menu />
       <Hero />
       <About />
-      <Work />
       <Experience />
+      <Work />
       <TechStack />
       <Education />
       <Tesimonial />

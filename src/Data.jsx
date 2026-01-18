@@ -10,9 +10,20 @@ import askme from "./assets/askmeeee.png"
 import earthplanet from "./assets/earthplanet.png"
 import ckp from "./assets/ckpppp.webp"
 import portfolio from "./assets/portfoliome.png"
+import servyst from "./assets/servyst.png"
 
 
 export const projects = [
+  {
+    img: servyst,
+    title: 'Servyst',
+    link: 'https://servyst.vercel.app/',
+    stack: ["Nextjs", "Reactjs", "Nodejs", "Tailwindcss", "Typescript"], 
+    technologies: ["Nextjs", "Reactjs", "Nodejs", "Tailwindcss", "Typescript", "MongoDB"],
+    role: "Fullstack Developer",
+    comment:
+      "A complete service marketplace platform that solves the trust and convenience problem in local service booking through escrow payments, provider verification, and a seamless booking experience."
+  },
   {
     img: taskmanager,
     title: 'Task-Manager Web App',
@@ -23,16 +34,7 @@ export const projects = [
     comment:
       "A web app to manage tasks easily. Built secure user authentication with PassportJs and JWT. Added Cloudinary for file uploads and ensured a smooth, functional design.",
   },
-  {
-    img: community_img,
-    title: 'Issue Tracker Web App',
-    link: 'https://fix-my-community-webapp.onrender.com/',
-    stack: ["Nodejs", "Expressjs", "MongoDB", "ReactJs", "LeafletJs"], 
-    technologies: ["Nodejs", "Expressjs", "MongoDB", "ReactJs", "LeafletJs", "Cloudinary", "TailwindCSS"],
-    role: "Fullstack Developer",
-    comment:
-      "An issue tracker for communities. Integrated an interactive map with LeafletJs for precise issue location. Used Tailwind CSS for responsiveness and Cloudinary for image management.",
-  },
+ 
   {
     img: crossborder_img,
     title: 'Mini Logistic Portal',
@@ -52,6 +54,16 @@ export const projects = [
     role: "Fullstack Developer",
     comment:
       "A platform for users to ask and answer questions. Built with authentication (JWT + PassportJS) and a clean, responsive interface using React and TailwindCSS.",
+  },
+  {
+    img: community_img,
+    title: 'Issue Tracker Web App',
+    link: 'https://fix-my-community-webapp.onrender.com/',
+    stack: ["Nodejs", "Expressjs", "MongoDB", "ReactJs", "LeafletJs"], 
+    technologies: ["Nodejs", "Expressjs", "MongoDB", "ReactJs", "LeafletJs", "Cloudinary", "TailwindCSS"],
+    role: "Fullstack Developer",
+    comment:
+      "An issue tracker for communities. Integrated an interactive map with LeafletJs for precise issue location. Used Tailwind CSS for responsiveness and Cloudinary for image management.",
   },
   {
     img: event_img,
@@ -156,13 +168,15 @@ export const certificationsData = [
       company: "LoubbyAI",
       location: "Remote",
       startDate: "2024-12",
-      endDate: "",
+      endDate: "2025-12",
       current: false,
       link: "https://www.loubby.ai/",
       achievements: [
-        "Helped build an AI-powered resume builder using Next.js, Node.js, and MongoDB.",
+        "Helped build an AI-powered resume builder using Next.js, Node.js, and MongoDB, improving how fast and accurately resumes are generated.",
         "Worked on a job portal with advanced search and filtering features.",
-        "Contributed to an AI agent marketplace handling auth, routes, and data connections."
+        "Part of the team that built an AI agent marketplace, handling auth, routes, and data connections.",
+        "Joined code reviews and sprints - learned how to build together, not just alone."
+
       ]
     },
     {
@@ -175,9 +189,9 @@ export const certificationsData = [
       current: false,
       link: "https://techfactory.xyz/",
       achievements: [
-        "Rebuilt the company's main web app using React and Node.js.",
-        "Mentored an intern and handled production fixes and deployments.",
-        "Reduced API response time by ~20%."
+        "Rebuilt the company's main web app using React and Node.js - cleaner, faster, and easier to manage.",
+        "Mentored an intern while handling production fixes and deployments.",
+        "Tweaked backend endpoints and reduced API response time by around 20%."
       ]
     },
     {
@@ -190,9 +204,9 @@ export const certificationsData = [
       current: false,
       link: "https://triibeedu.com/",
       achievements: [
-        "Migrated their static site to React + Node.js.",
-        "Collaborated with design and marketing teams to ship features.",
-        "Deployed the site on a VPS, improving SEO and load speed."
+        "Migrated the company's old static site into a dynamic React + Node.js stack.",
+        "Worked with the design and marketing teams to ship new features.",
+        "Deployed the site on a VPS, tuned SEO and load speed."
       ]
     },
     {

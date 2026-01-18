@@ -27,6 +27,8 @@ router.post("/", [
 
     const isHuman = await verifyRecaptcha(token)
 
+    console.log("isHuman", isHuman);
+
     try {
         if (!isHuman) {
             throw new HttpError("Verification failed. Please try again or email me directly. Thanks!", STATUS_CODES.BAD_REQUEST)

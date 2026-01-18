@@ -1,4 +1,4 @@
-import express, { response } from 'express'
+import express from 'express'
 import * as dotenv from 'dotenv'
 dotenv.config()
 import morgan from 'morgan'
@@ -54,6 +54,7 @@ app.get("/", (req, res) => {
 
 
 // Centralized error handler
+// eslint-disable-next-line no-unused-vars
 app.use((err, req, res, next) => {
     const statusCode = err.statusCode || STATUS_CODES.INTERNAL_SERVER_ERROR;
     const message = process.env.NODE_ENV === 'production' ? "An unexpected error occured. Please try again later." : err.message;
@@ -64,7 +65,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).json(errorResponse(message))
 })
 
-const port = process.env.PORT || 3000
+const port = process.env.PORT || 5000
 
 app.listen(port, () => {
     console.log(`server running on port ${port}`);

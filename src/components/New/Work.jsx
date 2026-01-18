@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { projects } from "../../Data";
-import { ArrowLongRightIcon, LinkIcon, SparklesIcon } from "@heroicons/react/20/solid";
+import { ArrowLongRightIcon, LinkIcon } from "@heroicons/react/20/solid";
 import { XMarkIcon } from "@heroicons/react/24/solid";
 import { Link, useLocation } from "react-router";
 
@@ -50,7 +50,7 @@ const Work = () => {
                 {pathname === "/" && (
                     <div className="mb-12 md:mb-24">
                         <div className="flex items-baseline gap-3 md:gap-6">
-                            <span className="text-4xl md:text-6xl lg:text-8xl font-light tracking-tight">02</span>
+                            <span className="text-4xl md:text-6xl lg:text-8xl font-light tracking-tight">03</span>
                             <div>
                                 <h2 className="text-2xl md:text-4xl lg:text-6xl font-light mb-2 md:mb-3">Selected Work</h2>
                                 <p className="text-gray-500 text-sm md:text-lg max-w-2xl">
@@ -79,10 +79,10 @@ const Work = () => {
                                         <div className="relative aspect-[4/3] md:aspect-[4/3] bg-gray-900">
                                             {project.img ? (
                                                 <>
-                                    <img
-                                    src={project.img}
-                                    alt={project.title}
-                                                        className={`w-full h-full object-cover transition-transform duration-[800ms] ${hoveredIndex === index ? 'scale-105' : 'scale-100'}`}
+                                                    <img
+                                                        src={project.img}
+                                                        alt={project.title}
+                                                        className={`w-full h-full object-contain transition-transform duration-[800ms] ${hoveredIndex === index ? 'scale-105' : 'scale-100'}`}
                                                     />
                                                     <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
                                                 </>
@@ -105,7 +105,7 @@ const Work = () => {
                                                     {project.role}
                                                 </span>
                                             </div>
-                                            
+
                                             <h3 className="text-xl md:text-3xl lg:text-4xl font-light mb-3 md:mb-4 leading-tight">
                                                 {project.title}
                                             </h3>
@@ -128,14 +128,14 @@ const Work = () => {
                                             <p className="text-gray-400 text-xs md:text-sm leading-relaxed mb-4 md:mb-6 line-clamp-3">
                                                 {project.comment}
                                             </p>
-                                            
+
                                             <div className="flex items-center gap-2 text-gray-400 group-hover:text-white transition-colors">
                                                 <span className="text-xs md:text-sm font-light tracking-wide uppercase">View Project</span>
                                                 <ArrowLongRightIcon className="w-4 h-4 md:w-5 md:h-5 transition-transform duration-300 group-hover:translate-x-2" />
                                             </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
 
                                 {/* Divider Line */}
                                 <div className={`mt-8 md:mt-6 lg:mt-12 h-px bg-gradient-to-r from-gray-800 via-gray-700 to-gray-800 transition-opacity duration-500 ${hoveredIndex === index ? 'opacity-100' : 'opacity-30'}`}></div>
@@ -146,26 +146,26 @@ const Work = () => {
 
                 {pathname === "/" && (
                     <div className="flex justify-center mt-12 md:mt-24">
-                        <Link 
-                            to="/projects" 
+                        <Link
+                            to="/projects"
                             className="group inline-flex items-center gap-2 md:gap-3 text-gray-400 hover:text-white transition-colors text-xs md:text-sm font-light tracking-widest uppercase"
                         >
                             <span>View All Projects</span>
                             <ArrowLongRightIcon className="w-4 h-4 md:w-5 md:h-5 transition-transform group-hover:translate-x-2" />
-                            </Link>
-                        </div>
+                        </Link>
+                    </div>
                 )}
             </div>
 
             {/* Slide-over Modal */}
             {open && selectedProject && (
-                <div 
+                <div
                     className="fixed inset-0 z-50 overflow-hidden"
                     onClick={handleClose}
                 >
                     <div className={`absolute inset-0 bg-black/80 backdrop-blur-sm transition-opacity duration-300 ${isAnimating ? 'opacity-100' : 'opacity-0'}`}></div>
-                    
-                    <div 
+
+                    <div
                         className={`absolute right-0 top-0 h-full w-full md:w-[640px] bg-black border-l border-gray-900 shadow-2xl transform transition-transform duration-500 ease-out ${isAnimating ? 'translate-x-0' : 'translate-x-full'}`}
                         onClick={(e) => e.stopPropagation()}
                     >
@@ -232,7 +232,7 @@ const Work = () => {
                             </div>
                         </div>
                     </div>
-            </div>
+                </div>
             )}
         </section>
     );

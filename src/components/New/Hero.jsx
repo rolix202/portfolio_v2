@@ -3,6 +3,7 @@ import { ArrowLongRightIcon } from "@heroicons/react/20/solid";
 import { FaLinkedin, FaTwitter, FaGithub } from "react-icons/fa";
 import { Link } from 'react-scroll';
 import CV from "../../assets/OodoRolndUchennaResume.pdf"
+import { FaLaptop, FaMedium } from 'react-icons/fa6';
 
 const Hero = () => {
     return (
@@ -37,38 +38,40 @@ const Hero = () => {
                     {/* Title */}
                     <div className="mb-8 md:mb-12">
                         <p className="text-xl md:text-2xl lg:text-3xl font-light text-gray-300 leading-relaxed">
-                            Building systems that power modern applications
+                        SaaS & AI Full-Stack Developer
                         </p>
                     </div>
 
                     {/* Description */}
                     <p className="text-base md:text-lg text-gray-400 mb-10 md:mb-12 leading-relaxed max-w-2xl">
-                        I write code that runs in production. APIs that handle real traffic. Databases that scale. 
-                        Currently building AI-powered hiring platforms and refactoring legacy systems into something you&apos;d actually want to work on.
+                    If you need a developer who can own features end-to-end, suggest better solutions, and build for real users — let’s talk.
+
+Ready to help you launch and scale your product.
                     </p>
 
                     {/* CTA Buttons */}
                     <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mb-8 md:mb-16">
-                        <a
-                            href={CV}
-                            download=""
-                            className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 border border-white text-white hover:bg-white hover:text-black transition-colors text-xs sm:text-sm md:text-base font-light tracking-wide uppercase w-full sm:w-auto"
-                        >
-                            Download CV
-                            <ArrowLongRightIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" />
-                        </a>
-                        <Link
+                    <Link
                             to="contact" 
                             smooth={true} 
                             duration={500} 
                             offset={-10} 
                             activeClass="active" 
                             spy={true}
-                            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 cursor-pointer border border-gray-700 text-gray-400 hover:border-white hover:text-white transition-colors text-xs sm:text-sm md:text-base font-light tracking-wide uppercase w-full sm:w-auto"
+                            className="inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 cursor-pointer border border-white text-white hover:bg-white hover:text-black transition-colors text-xs sm:text-sm md:text-base font-light tracking-wide uppercase w-full sm:w-auto"
                         >
                             Contact Me
                             <ArrowLongRightIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
                         </Link>
+                        <a
+                            href={CV}
+                            download=""
+                            className="group inline-flex items-center justify-center gap-2 px-5 py-2.5 sm:px-6 sm:py-3 border border-gray-700 text-gray-400 hover:border-white hover:text-white transition-colors text-xs sm:text-sm md:text-base font-light tracking-wide uppercase w-full sm:w-auto"
+                        >
+                            Download CV
+                            <ArrowLongRightIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 transition-transform group-hover:translate-x-1" />
+                        </a>
+                        
                     </div>
 
                     {/* Social Links */}
@@ -98,6 +101,22 @@ const Hero = () => {
                                 className="hover:text-white transition-colors"
                             >
                                 <FaGithub className="w-4 h-4 md:w-5 md:h-5" />
+                            </a>
+                            <a
+                                href="https://medium.com/@rocodeify"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-white transition-colors"
+                            >
+                                <FaMedium className="w-4 h-4 md:w-5 md:h-5" />
+                            </a>
+                            <a
+                                href="https://zeenomtech.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="hover:text-white transition-colors"
+                            >
+                                <FaLaptop className="w-4 h-4 md:w-5 md:h-5" />
                             </a>
                         </div>
                     </div>

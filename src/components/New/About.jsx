@@ -45,37 +45,58 @@ const About = () => {
                         </div>
                     </div>
 
+
+
                     {/* About Content */}
-                    <div className="lg:col-span-7 space-y-4 md:space-y-5">
-                        <p className="text-sm md:text-base text-gray-400 leading-relaxed">
-                            I&apos;ve spent the last two years turning ideas into <span className="text-gray-300">reliable, scalable web applications</span>. Most of my work revolves around <span className="text-gray-300">TypeScript, Node.js, Express, MySQL, and MongoDB</span>, but I enjoy picking up whatever tools get the job done.
-                        </p>
-
-                        <p className="text-sm md:text-base text-gray-400 leading-relaxed">
-                            I&apos;ve rebuilt <span className="text-gray-300">slow, messy systems into clean, maintainable codebases</span>, worked closely with developers, designers and product teams, and shipped features that genuinely improve user experience. <span className="text-gray-300">Clean code, clear communication, and delivering what I promise</span> are non-negotiables.
-                        </p>
-
-                        <p className="text-sm md:text-base text-gray-400 leading-relaxed">
-                            I work with <span className="text-gray-300">React, Next.js, Node.js, PostgreSQL, MongoDB</span>, and cloud services — building apps that are reliable and easy to maintain. I&apos;ve also had hands-on experience <span className="text-gray-300">adding AI features</span> and <span className="text-gray-300">collaborating with cross-functional teams</span> to deliver end-to-end solutions.
-                        </p>
-                        
-                        <p className="text-sm md:text-base text-gray-400 leading-relaxed">
-                            My experience includes building <span className="text-gray-300">AI-powered resume builders</span>, <span className="text-gray-300">job portals</span>, and <span className="text-gray-300">marketplaces for autonomous agents</span>. I&apos;m comfortable working independently or as part of a team, and I focus on writing code that&apos;s not just functional, but also maintainable and well-documented.
-                        </p>
-
-                        <div className="pt-6 md:pt-8 border-t border-gray-800 space-y-2">
-                            <div className="flex items-center gap-2 text-xs md:text-sm">
-                                <span className="text-gray-600">Current Focus:</span>
-                                <span className="text-gray-300">Backend Engineering & System Architecture</span>
-                            </div>
-                            <div className="flex items-center gap-2 text-xs md:text-sm">
-                                <span className="text-gray-600">Available for:</span>
-                                <span className="text-gray-300">Contract & Full-time Opportunities</span>
-                            </div>
+                    <div className="lg:col-span-7 space-y-5 md:space-y-6">
+                        <div className="space-y-3 md:space-y-4">
+                            <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+                                Building a SaaS / Product is hard.
+                            </p>
+                            <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+                                Hiring the wrong developer makes it harder.
+                            </p>
                         </div>
 
+                        <p className="text-sm md:text-base text-gray-400 leading-relaxed">
+                            If you&apos;re a founder who needs to ship fast, make smart technical decisions, and avoid costly rebuilds later — you&apos;re in the right place.
+                        </p>
 
+                        <p className="text-sm md:text-base text-gray-400 leading-relaxed">
+                            I&apos;m a <span className="text-gray-300">Full-Stack SaaS Developer (3+ years)</span> helping startups turn ideas into production-ready web applications using <span className="text-gray-300">React, Next.js, Node.js, TypeScript, and scalable APIs</span>.
+                        </p>
 
+                        <p className="text-sm md:text-base text-gray-400 leading-relaxed">
+                            I focus on <span className="text-gray-300">building solid foundations first</span> — so your product can grow without breaking.
+                        </p>
+
+                        <div className="pt-4 md:pt-6 border-t border-gray-800">
+                            <h3 className="text-sm md:text-base font-medium text-gray-300 mb-4 md:mb-5">
+                                What I help startups build
+                            </h3>
+                            <ul className="space-y-2.5 md:space-y-3 text-sm md:text-base text-gray-400">
+                                <li className="flex items-start gap-2">
+                                    <span className="text-gray-600 mt-1">•</span>
+                                    <span><span className="text-gray-300">SaaS MVPs</span> (idea → build → launch → iterate)</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-gray-600 mt-1">•</span>
+                                    <span><span className="text-gray-300">Scalable backend systems & APIs</span> (authentication, roles, payments, integrations)</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-gray-600 mt-1">•</span>
+                                    <span><span className="text-gray-300">Modern, conversion-focused frontend</span> with clean UX</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-gray-600 mt-1">•</span>
+                                    <span><span className="text-gray-300">Well-structured databases</span> (MongoDB / PostgreSQL)</span>
+                                </li>
+                                <li className="flex items-start gap-2">
+                                    <span className="text-gray-600 mt-1">•</span>
+                                    <span><span className="text-gray-300">AI-powered features</span> where they add real value (chat, smart search, automation, content assistance)</span>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
 
                 </div>
