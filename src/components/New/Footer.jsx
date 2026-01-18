@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 import { Link as RouterLink } from 'react-router';
 
@@ -72,12 +72,7 @@ const Footer = () => {
                 {/* Copyright */}
                 <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
                     <p>© {new Date().getFullYear()} Roland Oodo. All rights reserved.</p>
-                    <div className="flex items-center gap-2">
-                        <span>Built with</span>
-                        <span className="text-white">React</span>
-                        <span>and</span>
-                        <span className="text-white">Tailwind CSS</span>
-                    </div>
+                   
                 </div>
             </div>
         </footer>
