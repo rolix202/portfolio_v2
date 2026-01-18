@@ -15,7 +15,8 @@ import { errorResponse } from './utils/responseHelpers.js'
 const app = express()
 
 // Trust proxy (required when behind a proxy like Render, Heroku, etc.)
-app.set('trust proxy', true);
+// Set to 1 to trust the first proxy, more secure than true
+app.set('trust proxy', 1);
 
 // Winston logger setup
 const logger = winston.createLogger({
@@ -44,6 +45,11 @@ const limiter = rateLimit({
     windowMs: 15 * 60 * 1000, // 15 minutes
     max: 100, //100 request per windowMS
     message: "Too many requests, please try again later.",
+    standardHeaders: true, // Return rate limit info in the `RateLimit-*` headers
+    legacyHeaders: false, // Disable the `X-RateLimit-*` headers
+    validate: {
+        trustProxy: false, // Skip trust proxy validation since we handle it separately
+    },
 })
 
 app.use('/api', limiter)
