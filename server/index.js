@@ -14,6 +14,9 @@ import { errorResponse } from './utils/responseHelpers.js'
 
 const app = express()
 
+// Trust proxy (required when behind a proxy like Render, Heroku, etc.)
+app.set('trust proxy', true);
+
 // Winston logger setup
 const logger = winston.createLogger({
     level: 'error',
